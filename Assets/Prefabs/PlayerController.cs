@@ -21,6 +21,8 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
 
+        Quaternion rotation = GetAngleToMouse();
+
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
 
@@ -36,11 +38,21 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     void CmdFire()
     {
+        //BulletPrefab.transform.Rotate(90f, 0f, 0f);
         GameObject bullet = Instantiate(BulletPrefab, BulletSpawn.position, BulletSpawn.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.up * 15;
 
         NetworkServer.Spawn(bullet);
 
         Destroy(bullet, 2.0f);
+    }
+
+    Quaternion GetAngleToMouse()
+    {
+        Transform trans = GetComponent<Transform>();
+
+
+
+        return new Quaternion();
     }
 }

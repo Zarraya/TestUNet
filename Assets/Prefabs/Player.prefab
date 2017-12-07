@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114610261219048580}
   - component: {fileID: 114885712336030998}
   - component: {fileID: 114479207331011568}
+  - component: {fileID: 54295430238698430}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -74,7 +75,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4505576286311974}
   - component: {fileID: 33901757897643008}
-  - component: {fileID: 136426025384448250}
   - component: {fileID: 23655514033668712}
   m_Layer: 0
   m_Name: Cylinder
@@ -90,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120386475545084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1139841, y: 4.430225, z: -0.30902612}
+  m_LocalPosition: {x: 3.352864, y: -0.70923924, z: 7.6394978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4935836870606498}
@@ -118,13 +118,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828191591959056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.456, y: 0, z: 0.947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4026581685528750}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4935836870606498
 Transform:
   m_ObjectHideFlags: 1
@@ -261,6 +261,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989526061860554}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54295430238698430
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1120386475545084}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!65 &65413690880464426
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -337,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadf637cb0e45d848a2fc4fb7688775e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1658751845121792, guid: b3e7d91f635d58340af74d392ec8c060,
+  BulletPrefab: {fileID: 1888291745885254, guid: 3ac9c487878c46a4cb65e66179270e00,
     type: 2}
   BulletSpawn: {fileID: 4527511273755160}
 --- !u!136 &136394336652106764
@@ -346,19 +361,6 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1120386475545084}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136426025384448250
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989526061860554}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
