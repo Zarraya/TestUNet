@@ -1,0 +1,862 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf875188b24dc24badcb08511090b87, type: 3}
+  m_Name: ControlGallery
+  m_EditorClassIdentifier: 
+  source: Assets/NoesisGUI/Samples/ControlGallery/ControlGallery.xaml
+  content: "<UserControl\r\n\txmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"\r\n\txmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"\r\n\txmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\"
+    xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" mc:Ignorable=\"d\"\r\n\txmlns:noesis=\"clr-namespace:Noesis.Samples\"\r\n\tx:Class=\"Noesis.Samples.ControlGallery\"\r\n
+    \   FontFamily=\"Resources/Fonts/#Roboto\"\r\n\td:DesignWidth=\"1280\" d:DesignHeight=\"720\">\r\n\r\n
+    \   <UserControl.Resources>\r\n        <Geometry x:Key=\"SelectorExpandGeometry\">M2,2L8,2M2,5L8,5M2,8L8,8</Geometry>\r\n
+    \       <SolidColorBrush x:Key=\"GlyphFg\" Color=\"White\"/>\r\n        <Color
+    x:Key=\"ButtonDarkNormalBg\">#FF175B97</Color>\r\n        <Color x:Key=\"ButtonNormalBg\">#FF286CA8</Color>\r\n
+    \       <Color x:Key=\"ButtonDarkOverBg\">#FF12548F</Color>\r\n        <Color
+    x:Key=\"ButtonOverBg\">#FF2F76B5</Color>\r\n        <Color x:Key=\"ButtonDarkPressBg\">#FF174E7E</Color>\r\n
+    \       <Color x:Key=\"ButtonPressBg\">#FF1F629C</Color>\r\n        <Color x:Key=\"ItemNormalBg\">#00286CA8</Color>\r\n
+    \       <Color x:Key=\"ItemOverBg\">#40286CA8</Color>\r\n        <Color x:Key=\"ItemSelectBg\">#80286CA8</Color>\r\n\r\n
+    \       <Color x:Key=\"NormalFgColor\">#FFC9CCCF</Color>\r\n        <Color x:Key=\"NormalBgColor\">#FF4D555B</Color>\r\n
+    \       <Color x:Key=\"NormalDarkBgColor\">#FF464E53</Color>\r\n        <Color
+    x:Key=\"NormalBdColor\">#FF31373A</Color>\r\n        <Color x:Key=\"NormalDarkBdColor\">#FF2F3437</Color>\r\n
+    \       <Color x:Key=\"CheckBgColor\">#FF38A3DC</Color>\r\n        <GradientStopCollection
+    x:Key=\"NormalBgRamp\">\r\n            <GradientStop Color=\"#FF545D63\" Offset=\"0\"/>\r\n
+    \           <GradientStop Color=\"{StaticResource NormalBgColor}\" Offset=\"0.5\"/>\r\n
+    \           <GradientStop Color=\"{StaticResource NormalDarkBgColor}\" Offset=\"1\"/>\r\n
+    \       </GradientStopCollection>\r\n        <GradientStopCollection x:Key=\"NormalBdRamp\">\r\n
+    \           <GradientStop Color=\"#FF33393D\" Offset=\"0\"/>\r\n            <GradientStop
+    Color=\"{StaticResource NormalBdColor}\" Offset=\"0.5\"/>\r\n            <GradientStop
+    Color=\"{StaticResource NormalDarkBdColor}\" Offset=\"1\"/>\r\n        </GradientStopCollection>\r\n
+    \       <SolidColorBrush x:Key=\"NormalFgBrush\" Color=\"{StaticResource NormalFgColor}\"/>\r\n
+    \       <LinearGradientBrush x:Key=\"NormalBgBrush\" EndPoint=\"0.5,1\" StartPoint=\"0.5,0\"
+    GradientStops=\"{StaticResource NormalBgRamp}\"/>\r\n        <LinearGradientBrush
+    x:Key=\"NormalBdBrush\" EndPoint=\"0.5,1\" StartPoint=\"0.5,0\" GradientStops=\"{StaticResource
+    NormalBdRamp}\"/>\r\n\r\n        <LinearGradientBrush x:Key=\"SelectorBg\" EndPoint=\"0.5,1\"
+    StartPoint=\"0.5,0\">\r\n            <GradientStop Color=\"#7F000000\" Offset=\"0\"/>\r\n
+    \           <GradientStop Color=\"#4C000000\" Offset=\"1\"/>\r\n        </LinearGradientBrush>\r\n
+    \       <LinearGradientBrush x:Key=\"TD_Shadow\" EndPoint=\"0.5,1\" StartPoint=\"0.5,0\">\r\n
+    \           <GradientStop Color=\"#59000000\" Offset=\"0\"/>\r\n            <GradientStop
+    Color=\"#00000000\" Offset=\"1\"/>\r\n        </LinearGradientBrush>\r\n        <LinearGradientBrush
+    x:Key=\"DT_Shadow\" EndPoint=\"0.5,1\" StartPoint=\"0.5,0\">\r\n            <GradientStop
+    Color=\"#59000000\" Offset=\"1\"/>\r\n            <GradientStop Color=\"#00000000\"/>\r\n
+    \       </LinearGradientBrush>\r\n        <LinearGradientBrush x:Key=\"LR_Shadow\"
+    EndPoint=\"1,0.5\" StartPoint=\"0,0.5\">\r\n            <GradientStop Color=\"#3F000000\"
+    Offset=\"0\"/>\r\n            <GradientStop Color=\"#00000000\" Offset=\"1\"/>\r\n
+    \       </LinearGradientBrush>\r\n\r\n        <Style x:Key=\"NoesisControlStyle\">\r\n
+    \           <Setter Property=\"Control.Background\" Value=\"{StaticResource NormalBgBrush}\"/>\r\n
+    \           <Setter Property=\"Control.BorderBrush\" Value=\"{StaticResource NormalBdBrush}\"/>\r\n
+    \           <Setter Property=\"Control.BorderThickness\" Value=\"1\"/>\r\n            <Setter
+    Property=\"Control.HorizontalContentAlignment\" Value=\"Stretch\"/>\r\n            <Setter
+    Property=\"Control.VerticalContentAlignment\" Value=\"Stretch\"/>\r\n            <Setter
+    Property=\"Control.Padding\" Value=\"0\"/>\r\n            <Setter Property=\"Control.IsTabStop\"
+    Value=\"True\"/>\r\n            <Setter Property=\"Control.OverridesDefaultStyle\"
+    Value=\"False\"/>\r\n        </Style>\r\n\r\n        <!-- ScrollBarLineButton
+    Style -->\r\n        <Style x:Key=\"ScrollBarLineButton\" TargetType=\"{x:Type
+    RepeatButton}\" BasedOn=\"{StaticResource NoesisControlStyle}\">\r\n            <Setter
+    Property=\"Focusable\" Value=\"False\"/>\r\n            <Setter Property=\"ClickMode\"
+    Value=\"Press\"/>\r\n            <Setter Property=\"Delay\" Value=\"250\"/>\r\n
+    \           <Setter Property=\"Interval\" Value=\"100\"/>\r\n            <Setter
+    Property=\"Template\">\r\n                <Setter.Value>\r\n                    <ControlTemplate
+    TargetType=\"{x:Type RepeatButton}\">\r\n                        <Border x:Name=\"BaseBorder\"\r\n
+    \                           Background=\"Transparent\">\r\n                            <VisualStateManager.VisualStateGroups>\r\n
+    \                               <VisualStateGroup x:Name=\"CommonStates\">\r\n
+    \                                   <VisualStateGroup.Transitions>\r\n                                        <VisualTransition
+    GeneratedDuration=\"0:0:0.1\" To=\"MouseOver\"/>\r\n                                        <VisualTransition
+    From=\"MouseOver\" GeneratedDuration=\"0:0:0.3\"/>\r\n                                        <VisualTransition
+    GeneratedDuration=\"0\" To=\"Pressed\"/>\r\n                                        <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\"/>\r\n                                    </VisualStateGroup.Transitions>\r\n
+    \                                   <VisualState x:Name=\"Normal\"/>\r\n                                    <VisualState
+    x:Name=\"MouseOver\">\r\n                                        <Storyboard>\r\n
+    \                                           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Shape.Fill).(Brush.Opacity)\"
+    Storyboard.TargetName=\"CheckArrow\">\r\n                                                <EasingDoubleKeyFrame
+    KeyTime=\"0\" Value=\"0.5\"/>\r\n                                            </DoubleAnimationUsingKeyFrames>\r\n
+    \                                       </Storyboard>\r\n                                    </VisualState>\r\n
+    \                                   <VisualState x:Name=\"Pressed\">\r\n                                        <Storyboard>\r\n
+    \                                           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Shape.Fill).(Brush.Opacity)\"
+    Storyboard.TargetName=\"CheckArrow\">\r\n                                                <EasingDoubleKeyFrame
+    KeyTime=\"0\" Value=\"0.7\"/>\r\n                                            </DoubleAnimationUsingKeyFrames>\r\n
+    \                                       </Storyboard>\r\n                                    </VisualState>\r\n
+    \                                   <VisualState x:Name=\"Disabled\"/>\r\n                                </VisualStateGroup>\r\n
+    \                           </VisualStateManager.VisualStateGroups>\r\n                            <Path
+    x:Name=\"CheckArrow\"\r\n                                Stretch=\"Fill\"\r\n
+    \                               Margin=\"3\"\r\n                                Data=\"{Binding
+    Content, RelativeSource={RelativeSource TemplatedParent}}\" UseLayoutRounding=\"False\">\r\n
+    \                               <Path.Fill>\r\n                                    <SolidColorBrush
+    Color=\"{StaticResource CheckBgColor}\" Opacity=\"0\"/>\r\n                                </Path.Fill>\r\n
+    \                           </Path>\r\n                        </Border>\r\n                    </ControlTemplate>\r\n
+    \               </Setter.Value>\r\n            </Setter>\r\n        </Style>\r\n
+    \       \r\n        <!-- ScrollBarPageButton Style -->\r\n        <Style x:Key=\"ScrollBarPageButton\"
+    TargetType=\"{x:Type RepeatButton}\" BasedOn=\"{StaticResource NoesisControlStyle}\">\r\n
+    \           <Setter Property=\"IsTabStop\" Value=\"False\"/>\r\n            <Setter
+    Property=\"Focusable\" Value=\"False\"/>\r\n            <Setter Property=\"Template\">\r\n
+    \               <Setter.Value>\r\n                    <ControlTemplate TargetType=\"{x:Type
+    RepeatButton}\">\r\n                        <Border Background=\"Transparent\"/>\r\n
+    \                   </ControlTemplate>\r\n                </Setter.Value>\r\n
+    \           </Setter>\r\n        </Style>\r\n                \r\n        <!--
+    VerticalScrollBarThumb Style -->\r\n        <Style x:Key=\"VerticalScrollBarThumb\"
+    TargetType=\"{x:Type Thumb}\" BasedOn=\"{StaticResource NoesisControlStyle}\">\r\n
+    \           <Setter Property=\"IsTabStop\" Value=\"False\"/>\r\n            <Setter
+    Property=\"Focusable\" Value=\"False\"/>\r\n            <Setter Property=\"Template\">\r\n
+    \               <Setter.Value>\r\n                    <ControlTemplate TargetType=\"{x:Type
+    Thumb}\">\r\n                        <Grid>\r\n                            <VisualStateManager.VisualStateGroups>\r\n
+    \                               <VisualStateGroup x:Name=\"CommonStates\">\r\n
+    \                                   <VisualStateGroup.Transitions>\r\n                                        <VisualTransition
+    GeneratedDuration=\"0:0:0.1\" To=\"MouseOver\"/>\r\n                                        <VisualTransition
+    From=\"MouseOver\" GeneratedDuration=\"0:0:0.3\"/>\r\n                                        <VisualTransition
+    GeneratedDuration=\"0\" To=\"Pressed\"/>\r\n                                        <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\"/>\r\n                                        <VisualTransition
+    GeneratedDuration=\"0:0:0.2\" To=\"Disabled\"/>\r\n                                        <VisualTransition
+    From=\"Disabled\" GeneratedDuration=\"0:0:0.2\"/>\r\n                                    </VisualStateGroup.Transitions>\r\n
+    \                                   <VisualState x:Name=\"Normal\"/>\r\n                                    <VisualState
+    x:Name=\"MouseOver\">\r\n                                        <Storyboard>\r\n
+    \                                           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(Brush.Opacity)\"
+    Storyboard.TargetName=\"DragBorder\">\r\n                                                <EasingDoubleKeyFrame
+    KeyTime=\"0\" Value=\"0.6\"/>\r\n                                            </DoubleAnimationUsingKeyFrames>\r\n
+    \                                       </Storyboard>\r\n                                    </VisualState>\r\n
+    \                                   <VisualState x:Name=\"Pressed\">\r\n                                        <Storyboard>\r\n
+    \                                           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(Brush.Opacity)\"
+    Storyboard.TargetName=\"DragBorder\">\r\n                                                <EasingDoubleKeyFrame
+    KeyTime=\"0\" Value=\"0.9\"/>\r\n                                            </DoubleAnimationUsingKeyFrames>\r\n
+    \                                       </Storyboard>\r\n                                    </VisualState>\r\n
+    \                                   <VisualState x:Name=\"Disabled\">\r\n                                        <Storyboard>\r\n
+    \                                           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(Brush.Opacity)\"
+    Storyboard.TargetName=\"DragBorder\">\r\n                                                <EasingDoubleKeyFrame
+    KeyTime=\"0\" Value=\"0\"/>\r\n                                            </DoubleAnimationUsingKeyFrames>\r\n
+    \                                       </Storyboard>\r\n                                    </VisualState>\r\n
+    \                               </VisualStateGroup>\r\n                            </VisualStateManager.VisualStateGroups>\r\n
+    \                           <Border x:Name=\"BaseBorder\" Background=\"Transparent\"/>\r\n
+    \                           <Border x:Name=\"DragBorder\" CornerRadius=\"1\" Margin=\"4,0\">\r\n
+    \                               <Border.Background>\r\n                                    <SolidColorBrush
+    Color=\"{StaticResource CheckBgColor}\" Opacity=\"0.3\"/>\r\n                                </Border.Background>\r\n
+    \                           </Border>\r\n                        </Grid>\r\n                    </ControlTemplate>\r\n
+    \               </Setter.Value>\r\n            </Setter>\r\n        </Style>\r\n
+    \       \r\n        <!-- VerticalScrollBar Template -->\r\n        <ControlTemplate
+    x:Key=\"VerticalScrollBar\" TargetType=\"{x:Type ScrollBar}\">\r\n            <Grid\r\n
+    \               Background=\"Transparent\"\r\n                MinWidth=\"{TemplateBinding
+    MaxWidth}\"\r\n                MaxWidth=\"{TemplateBinding MaxWidth}\">\r\n                <Grid.RowDefinitions>\r\n
+    \                   <RowDefinition MinHeight=\"{TemplateBinding MaxWidth}\" MaxHeight=\"{TemplateBinding
+    MaxWidth}\"/>\r\n                    <RowDefinition Height=\"*\"/>\r\n                    <RowDefinition
+    MinHeight=\"{TemplateBinding MaxWidth}\" MaxHeight=\"{TemplateBinding MaxWidth}\"/>\r\n
+    \               </Grid.RowDefinitions>\r\n                <Track x:Name=\"PART_Track\"
+    Grid.Row=\"0\" Grid.RowSpan=\"3\" Margin=\"0,1\" Orientation=\"Vertical\" IsDirectionReversed=\"True\">\r\n
+    \                   <Track.DecreaseRepeatButton>\r\n                        <RepeatButton
+    Style=\"{StaticResource ScrollBarPageButton}\" Command=\"ScrollBar.PageUpCommand\"/>\r\n
+    \                   </Track.DecreaseRepeatButton>\r\n                    <Track.Thumb>\r\n
+    \                       <Thumb x:Name=\"Thumb\" Style=\"{StaticResource VerticalScrollBarThumb}\"
+    IsEnabled=\"False\"/>\r\n                    </Track.Thumb>\r\n                    <Track.IncreaseRepeatButton>\r\n
+    \                       <RepeatButton Style=\"{StaticResource ScrollBarPageButton}\"
+    Command=\"ScrollBar.PageDownCommand\"/>\r\n                    </Track.IncreaseRepeatButton>\r\n
+    \               </Track>\r\n                <RepeatButton x:Name=\"UpLineButton\"\r\n
+    \                   Grid.Row=\"0\"\r\n                    Style=\"{StaticResource
+    ScrollBarLineButton}\"\r\n                    Command=\"ScrollBar.LineUpCommand\">\r\n
+    \                   <Geometry>M 0 4 L 8 4 L 4 0 Z</Geometry>    \r\n                </RepeatButton>\r\n
+    \               <RepeatButton x:Name=\"DownLineButton\"\r\n                    Grid.Row=\"2\"\r\n
+    \                   Style=\"{StaticResource ScrollBarLineButton}\"\r\n                    Command=\"ScrollBar.LineDownCommand\">\r\n
+    \                   <Geometry>M 0 0 L 4 4 L 8 0 Z</Geometry>    \r\n                </RepeatButton>\r\n
+    \           </Grid>\r\n            <ControlTemplate.Triggers>\r\n                <Trigger
+    Property=\"IsMouseOver\" Value=\"True\">\r\n                    <Setter TargetName=\"Thumb\"
+    Property=\"IsEnabled\" Value=\"True\"/>\r\n                </Trigger>\r\n                <Trigger
+    SourceName=\"UpLineButton\" Property=\"IsMouseOver\" Value=\"True\">\r\n                    <Setter
+    TargetName=\"Thumb\" Property=\"IsEnabled\" Value=\"False\"/>\r\n                </Trigger>\r\n
+    \               <Trigger SourceName=\"DownLineButton\" Property=\"IsMouseOver\"
+    Value=\"True\">\r\n                    <Setter TargetName=\"Thumb\" Property=\"IsEnabled\"
+    Value=\"False\"/>\r\n                </Trigger>\r\n            </ControlTemplate.Triggers>\r\n
+    \       </ControlTemplate>\r\n        \r\n        <!-- ScrollBar Style -->\r\n
+    \       <Style TargetType=\"{x:Type ScrollBar}\" BasedOn=\"{StaticResource NoesisControlStyle}\">\r\n
+    \           <Style.Triggers>\r\n                <Trigger Property=\"Orientation\"
+    Value=\"Vertical\">\r\n                    <Setter Property=\"MaxWidth\" Value=\"15\"/>\r\n
+    \                   <Setter Property=\"Template\" Value=\"{StaticResource VerticalScrollBar}\"/>\r\n
+    \               </Trigger>\r\n            </Style.Triggers>\r\n        </Style>\r\n
+    \       \r\n        <!-- ScrollViewer Style -->\r\n        <Style TargetType=\"{x:Type
+    ScrollViewer}\" BasedOn=\"{StaticResource NoesisControlStyle}\">\r\n            <Setter
+    Property=\"Background\" Value=\"Transparent\"/>\r\n            <Setter Property=\"MinWidth\"
+    Value=\"15\"/>\r\n            <Setter Property=\"MinHeight\" Value=\"15\"/>\r\n
+    \           <Setter Property=\"Template\">\r\n                <Setter.Value>\r\n
+    \                   <ControlTemplate TargetType=\"{x:Type ScrollViewer}\">\r\n
+    \                       <Grid Background=\"{TemplateBinding Background}\">\r\n
+    \                           \r\n                            <Grid.ColumnDefinitions>\r\n
+    \                               <ColumnDefinition Width=\"*\"/>\r\n                                <ColumnDefinition
+    Width=\"Auto\"/>\r\n                            </Grid.ColumnDefinitions>\r\n
+    \   \r\n                            <Grid.RowDefinitions>\r\n                                <RowDefinition
+    Height=\"*\"/>\r\n                                <RowDefinition Height=\"Auto\"/>\r\n
+    \                           </Grid.RowDefinitions>\r\n    \r\n                            <ScrollContentPresenter\r\n
+    \                               Grid.Column=\"0\"\r\n                                Grid.ColumnSpan=\"2\"\r\n
+    \                               Grid.Row=\"0\"\r\n                                Grid.RowSpan=\"2\"\r\n
+    \                               Content=\"{TemplateBinding Content}\"\r\n                                ContentTemplate=\"{TemplateBinding
+    ContentTemplate}\"\r\n                                ContentTemplateSelector=\"{TemplateBinding
+    ContentTemplateSelector}\"\r\n                                CanContentScroll=\"{TemplateBinding
+    CanContentScroll}\"\r\n                                Margin=\"{TemplateBinding
+    Padding}\"/>\r\n                            \r\n                            <!--
+    The visibility of the ScrollBars is controlled by the implementation of the control
+    -->\r\n                            <ScrollBar x:Name=\"PART_HorizontalScrollBar\"\r\n
+    \                               Grid.Column=\"0\"\r\n                                Grid.ColumnSpan=\"2\"\r\n
+    \                               Grid.Row=\"1\"\r\n                                Orientation=\"Horizontal\"\r\n
+    \                               MaxHeight=\"{TemplateBinding MinHeight}\"\r\n
+    \                               Visibility=\"{TemplateBinding ComputedHorizontalScrollBarVisibility}\"\r\n
+    \                               Value=\"{Binding HorizontalOffset, Mode=OneWay,
+    RelativeSource={RelativeSource TemplatedParent}}\"\r\n                                ViewportSize=\"{TemplateBinding
+    ViewportWidth}\"\r\n                                Minimum=\"0\"\r\n                                Maximum=\"{TemplateBinding
+    ScrollableWidth}\"/>\r\n                            <ScrollBar x:Name=\"PART_VerticalScrollBar\"\r\n
+    \                               Grid.Column=\"1\"\r\n                                Grid.Row=\"0\"\r\n
+    \                               Grid.RowSpan=\"2\"\r\n                                Orientation=\"Vertical\"\r\n
+    \                               MaxWidth=\"{TemplateBinding MinWidth}\"\r\n                                Visibility=\"{TemplateBinding
+    ComputedVerticalScrollBarVisibility}\"\r\n                                Value=\"{Binding
+    VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}\"\r\n
+    \                               ViewportSize=\"{TemplateBinding ViewportHeight}\"\r\n
+    \                               Minimum=\"0\"\r\n                                Maximum=\"{TemplateBinding
+    ScrollableHeight}\"/>\r\n                        </Grid>\r\n                        <ControlTemplate.Triggers>\r\n
+    \                           <Trigger SourceName=\"PART_HorizontalScrollBar\" Property=\"IsMouseOver\"
+    Value=\"True\">\r\n                                <Setter TargetName=\"PART_HorizontalScrollBar\"
+    Property=\"Panel.ZIndex\" Value=\"1\"/>\r\n                            </Trigger>\r\n
+    \                           <Trigger SourceName=\"PART_VerticalScrollBar\" Property=\"IsMouseOver\"
+    Value=\"True\">\r\n                                <Setter TargetName=\"PART_VerticalScrollBar\"
+    Property=\"Panel.ZIndex\" Value=\"1\"/>\r\n                            </Trigger>\r\n
+    \                       </ControlTemplate.Triggers>\r\n                    </ControlTemplate>\r\n
+    \               </Setter.Value>\r\n            </Setter>\r\n        </Style>\r\n\r\n
+    \       <ControlTemplate x:Key=\"SelectorExpandTemplate\" TargetType=\"{x:Type
+    ToggleButton}\">\r\n            <Border Margin=\"0,0,-8,-8\" CornerRadius=\"0,0,8,0\"
+    Padding=\"0,0,8,8\">\r\n                <Border.Background>\r\n                    <LinearGradientBrush
+    EndPoint=\"1,1\" StartPoint=\"0,0\">\r\n                        <GradientStop
+    Color=\"#00000000\" Offset=\"0.4\"/>\r\n                        <GradientStop
+    Color=\"#19000000\" Offset=\"0.7\"/>\r\n                        <GradientStop
+    Color=\"#0C000000\" Offset=\"1\"/>\r\n                    </LinearGradientBrush>\r\n
+    \               </Border.Background>\r\n                <VisualStateManager.VisualStateGroups>\r\n
+    \                   <VisualStateGroup x:Name=\"CommonStates\">\r\n                        <VisualStateGroup.Transitions>\r\n
+    \                           <VisualTransition From=\"MouseOver\" GeneratedDuration=\"0:0:0.2\"
+    To=\"Normal\"/>\r\n                            <VisualTransition From=\"Pressed\"
+    GeneratedDuration=\"0:0:0.2\" To=\"MouseOver\"/>\r\n                            <VisualTransition
+    From=\"MouseOver\" GeneratedDuration=\"0:0:0.1\" To=\"Pressed\"/>\r\n                            <VisualTransition
+    From=\"Normal\" GeneratedDuration=\"0:0:0.2\" To=\"MouseOver\"/>\r\n                        </VisualStateGroup.Transitions>\r\n
+    \                       <VisualState x:Name=\"Normal\"/>\r\n                        <VisualState
+    x:Name=\"MouseOver\">\r\n                            <Storyboard>\r\n                                <ColorAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\" Storyboard.TargetName=\"Bd\">\r\n
+    \                                   <EasingColorKeyFrame KeyTime=\"0\" Value=\"{StaticResource
+    ButtonOverBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Pressed\">\r\n                            <Storyboard>\r\n
+    \                               <ColorAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\"
+    Storyboard.TargetName=\"Bd\">\r\n                                    <EasingColorKeyFrame
+    KeyTime=\"0\" Value=\"{StaticResource ButtonPressBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Disabled\"/>\r\n                    </VisualStateGroup>\r\n
+    \               </VisualStateManager.VisualStateGroups>\r\n                <Border
+    x:Name=\"Bd\">\r\n                    <Border.Background>\r\n                        <SolidColorBrush
+    Color=\"{StaticResource ButtonNormalBg}\"/>\r\n                    </Border.Background>\r\n
+    \                   <ContentPresenter\r\n\t\t\t\t\t\tHorizontalAlignment=\"{TemplateBinding
+    HorizontalContentAlignment}\"\r\n\t\t\t\t\t\tVerticalAlignment=\"{TemplateBinding
+    VerticalContentAlignment}\"\r\n\t\t\t\t\t\tMargin=\"{TemplateBinding Padding}\"/>\r\n
+    \               </Border>\r\n            </Border>\r\n        </ControlTemplate>\r\n
+    \       <ControlTemplate x:Key=\"SelectorTemplate\" TargetType=\"{x:Type TreeView}\">\r\n
+    \           <Grid>\r\n                <Grid Width=\"{TemplateBinding MinWidth}\">\r\n
+    \                   <Grid.ColumnDefinitions>\r\n                        <ColumnDefinition
+    Width=\"*\"/>\r\n                        <ColumnDefinition Width=\"*\"/>\r\n                    </Grid.ColumnDefinitions>\r\n
+    \                   <Rectangle x:Name=\"ScrollBarSpace\" Grid.Column=\"0\"/>\r\n
+    \               </Grid>\r\n                <ScrollViewer HorizontalScrollBarVisibility=\"Disabled\"
+    VerticalScrollBarVisibility=\"Auto\"\r\n\t\t\t\tMinWidth=\"{Binding ActualWidth,
+    ElementName=ScrollBarSpace}\" MinHeight=\"{Binding ActualWidth, ElementName=ScrollBarSpace}\">\r\n
+    \                   <StackPanel IsItemsHost=\"True\"/>\r\n                </ScrollViewer>\r\n
+    \           </Grid>\r\n        </ControlTemplate>\r\n        <Style x:Key=\"SelectorStyle\"
+    TargetType=\"{x:Type TreeView}\">\r\n            <Setter Property=\"Foreground\"
+    Value=\"{StaticResource GlyphFg}\"/>\r\n            <Setter Property=\"ScrollViewer.CanContentScroll\"
+    Value=\"False\"/>\r\n            <Setter Property=\"ScrollViewer.PanningMode\"
+    Value=\"VerticalFirst\"/>\r\n            <Setter Property=\"Template\" Value=\"{StaticResource
+    SelectorTemplate}\"/>\r\n        </Style>\r\n        <ControlTemplate x:Key=\"SelectorItemExpanderTemplate\"
+    TargetType=\"{x:Type ToggleButton}\">\r\n            <Border x:Name=\"Bd\">\r\n
+    \               <Border.Background>\r\n                    <SolidColorBrush Color=\"{StaticResource
+    ButtonNormalBg}\"/>\r\n                </Border.Background>\r\n                <VisualStateManager.VisualStateGroups>\r\n
+    \                   <VisualStateGroup x:Name=\"CommonStates\">\r\n                        <VisualStateGroup.Transitions>\r\n
+    \                           <VisualTransition From=\"Normal\" GeneratedDuration=\"0:0:0.2\"
+    To=\"MouseOver\"/>\r\n                            <VisualTransition From=\"MouseOver\"
+    GeneratedDuration=\"0:0:0.2\" To=\"Normal\"/>\r\n                            <VisualTransition
+    From=\"MouseOver\" GeneratedDuration=\"0:0:0.1\" To=\"Pressed\">\r\n                                <Storyboard/>\r\n
+    \                           </VisualTransition>\r\n                            <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\" To=\"MouseOver\"/>\r\n                            <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\" To=\"Normal\"/>\r\n                        </VisualStateGroup.Transitions>\r\n
+    \                       <VisualState x:Name=\"Normal\"/>\r\n                        <VisualState
+    x:Name=\"MouseOver\">\r\n                            <Storyboard>\r\n                                <ColorAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\" Storyboard.TargetName=\"Bd\">\r\n
+    \                                   <EasingColorKeyFrame KeyTime=\"0\" Value=\"{StaticResource
+    ButtonOverBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Pressed\">\r\n                            <Storyboard>\r\n
+    \                               <ColorAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\"
+    Storyboard.TargetName=\"Bd\">\r\n                                    <EasingColorKeyFrame
+    KeyTime=\"0\" Value=\"{StaticResource ButtonPressBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Disabled\"/>\r\n                    </VisualStateGroup>\r\n
+    \               </VisualStateManager.VisualStateGroups>\r\n            </Border>\r\n
+    \       </ControlTemplate>\r\n        <Style x:Key=\"SelectorItemExpanderStyle\"
+    TargetType=\"{x:Type ToggleButton}\">\r\n            <Setter Property=\"Template\"
+    Value=\"{StaticResource SelectorItemExpanderTemplate}\"/>\r\n        </Style>\r\n
+    \       <ControlTemplate x:Key=\"SampleItemTemplate\" TargetType=\"{x:Type TreeViewItem}\">\r\n
+    \           <Grid>\r\n                <Grid.RowDefinitions>\r\n                    <RowDefinition
+    Height=\"Auto\"/>\r\n                    <RowDefinition Height=\"*\"/>\r\n                </Grid.RowDefinitions>\r\n
+    \               <VisualStateManager.VisualStateGroups>\r\n                    <VisualStateGroup
+    x:Name=\"ExpansionStates\">\r\n                        <VisualStateGroup.Transitions>\r\n
+    \                           <VisualTransition From=\"Collapsed\" GeneratedDuration=\"0:0:0.2\"
+    To=\"Expanded\">\r\n                                <VisualTransition.GeneratedEasingFunction>\r\n
+    \                                   <SineEase EasingMode=\"EaseOut\"/>\r\n                                </VisualTransition.GeneratedEasingFunction>\r\n
+    \                           </VisualTransition>\r\n                            <VisualTransition
+    From=\"Expanded\" GeneratedDuration=\"0:0:0.2\" To=\"Collapsed\">\r\n                                <VisualTransition.GeneratedEasingFunction>\r\n
+    \                                   <SineEase EasingMode=\"EaseOut\"/>\r\n                                </VisualTransition.GeneratedEasingFunction>\r\n
+    \                           </VisualTransition>\r\n                        </VisualStateGroup.Transitions>\r\n
+    \                       <VisualState x:Name=\"Expanded\"/>\r\n                        <VisualState
+    x:Name=\"Collapsed\">\r\n                            <Storyboard>\r\n                                <DoubleAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)\"
+    Storyboard.TargetName=\"ItemsHostBd\">\r\n                                    <EasingDoubleKeyFrame
+    KeyTime=\"0\" Value=\"0\"/>\r\n                                </DoubleAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                   </VisualStateGroup>\r\n                    <VisualStateGroup
+    x:Name=\"HasItemsStates\">\r\n                        <VisualState x:Name=\"HasItems\">\r\n
+    \                           <Storyboard>\r\n                                <ObjectAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(UIElement.Visibility)\" Storyboard.TargetName=\"Expander\">\r\n
+    \                                   <DiscreteObjectKeyFrame KeyTime=\"0\" Value=\"{x:Static
+    Visibility.Visible}\"/>\r\n                                </ObjectAnimationUsingKeyFrames>\r\n
+    \                               <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.IsHitTestVisible)\"
+    Storyboard.TargetName=\"Bd\">\r\n                                    <DiscreteBooleanKeyFrame
+    KeyTime=\"0\" Value=\"False\"/>\r\n                                </BooleanAnimationUsingKeyFrames>\r\n
+    \                               <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty=\"(FrameworkElement.Margin)\"
+    Storyboard.TargetName=\"PART_Header\">\r\n                                    <EasingThicknessKeyFrame
+    KeyTime=\"0\" Value=\"4,6\"/>\r\n                                </ThicknessAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"NoItems\"/>\r\n                    </VisualStateGroup>\r\n
+    \               </VisualStateManager.VisualStateGroups>\r\n                <ToggleButton
+    x:Name=\"Expander\" IsChecked=\"{Binding IsExpanded, RelativeSource={RelativeSource
+    TemplatedParent}}\"\r\n\t\t\t\t\tStyle=\"{StaticResource SelectorItemExpanderStyle}\"
+    Visibility=\"Collapsed\"/>\r\n                <Border x:Name=\"Bd\" Height=\"{TemplateBinding
+    MinHeight}\">\r\n                    <Border.Background>\r\n                        <SolidColorBrush
+    Color=\"{StaticResource ItemNormalBg}\"/>\r\n                    </Border.Background>\r\n
+    \                   <Viewbox Stretch=\"UniformToFill\">\r\n                        <Grid
+    Width=\"2000\">\r\n                            <TextBlock x:Name=\"PART_Header\"
+    Text=\"{TemplateBinding Header}\" Margin=\"12,7\" HorizontalAlignment=\"Left\"/>\r\n
+    \                       </Grid>\r\n                    </Viewbox>\r\n                </Border>\r\n
+    \               <Border x:Name=\"ItemsHostBd\" Grid.Row=\"1\" Background=\"{StaticResource
+    SelectorBg}\">\r\n                    <Border.LayoutTransform>\r\n                        <ScaleTransform/>\r\n
+    \                   </Border.LayoutTransform>\r\n                    <Grid Margin=\"0,0,0,4\">\r\n
+    \                       <ItemsPresenter x:Name=\"ItemsHost\"/>\r\n                        <Rectangle
+    Width=\"8\" HorizontalAlignment=\"Left\">\r\n                            <Rectangle.Fill>\r\n
+    \                               <SolidColorBrush Color=\"{StaticResource ButtonPressBg}\"/>\r\n
+    \                           </Rectangle.Fill>\r\n                        </Rectangle>\r\n
+    \                       <!--Rectangle Width=\"8\" HorizontalAlignment=\"Right\">\r\n\t\t\t\t\t\t\t<Rectangle.Fill>\r\n\t\t\t\t\t\t\t\t<SolidColorBrush
+    Color=\"{StaticResource ButtonPressBg}\"/>\r\n\t\t\t\t\t\t\t</Rectangle.Fill>\r\n\t\t\t\t\t\t</Rectangle-->\r\n
+    \                   </Grid>\r\n                </Border>\r\n            </Grid>\r\n
+    \           <ControlTemplate.Triggers>\r\n                <Trigger Property=\"IsSelected\"
+    Value=\"True\">\r\n                    <Setter Property=\"Background\" TargetName=\"Bd\">\r\n
+    \                       <Setter.Value>\r\n                            <SolidColorBrush
+    Color=\"{StaticResource ItemSelectBg}\"/>\r\n                        </Setter.Value>\r\n
+    \                   </Setter>\r\n                </Trigger>\r\n                <Trigger
+    Property=\"IsMouseOver\" Value=\"True\" SourceName=\"Bd\">\r\n                    <Setter
+    Property=\"Background\" TargetName=\"Bd\">\r\n                        <Setter.Value>\r\n
+    \                           <SolidColorBrush Color=\"{StaticResource ItemOverBg}\"/>\r\n
+    \                       </Setter.Value>\r\n                    </Setter>\r\n                </Trigger>\r\n
+    \           </ControlTemplate.Triggers>\r\n        </ControlTemplate>\r\n        <Style
+    x:Key=\"SampleItemStyle\" TargetType=\"{x:Type TreeViewItem}\">\r\n            <Setter
+    Property=\"Foreground\" Value=\"{StaticResource GlyphFg}\"/>\r\n            <Setter
+    Property=\"Template\" Value=\"{StaticResource SampleItemTemplate}\"/>\r\n        </Style>\r\n
+    \       <ControlTemplate x:Key=\"SelectorComboExpanderTemplate\" TargetType=\"{x:Type
+    ToggleButton}\">\r\n            <Border x:Name=\"Bd\">\r\n                <Border.Background>\r\n
+    \                   <SolidColorBrush Color=\"{StaticResource ButtonDarkNormalBg}\"/>\r\n
+    \               </Border.Background>\r\n                <VisualStateManager.VisualStateGroups>\r\n
+    \                   <VisualStateGroup x:Name=\"CommonStates\">\r\n                        <VisualStateGroup.Transitions>\r\n
+    \                           <VisualTransition From=\"Normal\" GeneratedDuration=\"0:0:0.2\"
+    To=\"MouseOver\"/>\r\n                            <VisualTransition From=\"MouseOver\"
+    GeneratedDuration=\"0:0:0.2\" To=\"Normal\"/>\r\n                            <VisualTransition
+    From=\"MouseOver\" GeneratedDuration=\"0:0:0.1\" To=\"Pressed\">\r\n                                <Storyboard/>\r\n
+    \                           </VisualTransition>\r\n                            <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\" To=\"MouseOver\"/>\r\n                            <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\" To=\"Normal\"/>\r\n                        </VisualStateGroup.Transitions>\r\n
+    \                       <VisualState x:Name=\"Normal\"/>\r\n                        <VisualState
+    x:Name=\"MouseOver\">\r\n                            <Storyboard>\r\n                                <ColorAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\" Storyboard.TargetName=\"Bd\">\r\n
+    \                                   <EasingColorKeyFrame KeyTime=\"0\" Value=\"{StaticResource
+    ButtonDarkOverBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Pressed\">\r\n                            <Storyboard>\r\n
+    \                               <ColorAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\"
+    Storyboard.TargetName=\"Bd\">\r\n                                    <EasingColorKeyFrame
+    KeyTime=\"0\" Value=\"{StaticResource ButtonDarkPressBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Disabled\"/>\r\n                    </VisualStateGroup>\r\n
+    \               </VisualStateManager.VisualStateGroups>\r\n            </Border>\r\n
+    \       </ControlTemplate>\r\n        <Style x:Key=\"SelectorComboExpanderStyle\"
+    TargetType=\"{x:Type ToggleButton}\">\r\n            <Setter Property=\"Template\"
+    Value=\"{StaticResource SelectorComboExpanderTemplate}\"/>\r\n        </Style>\r\n
+    \       <ControlTemplate x:Key=\"StyleSelectorTemplate\" TargetType=\"{x:Type
+    ComboBox}\">\r\n            <ControlTemplate.Resources>\r\n                <Storyboard
+    x:Key=\"OnDropDown\">\r\n                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)\"
+    Storyboard.TargetName=\"ExpanderArrow\">\r\n                        <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.1\" Value=\"2\"/>\r\n                        <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"0\">\r\n                            <EasingDoubleKeyFrame.EasingFunction>\r\n
+    \                               <SineEase EasingMode=\"EaseOut\"/>\r\n                            </EasingDoubleKeyFrame.EasingFunction>\r\n
+    \                       </EasingDoubleKeyFrame>\r\n                    </DoubleAnimationUsingKeyFrames>\r\n
+    \                   <ColorAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Shape.Fill).(SolidColorBrush.Color)\"
+    Storyboard.TargetName=\"StyleIcon\">\r\n                        <EasingColorKeyFrame
+    KeyTime=\"0:0:0.1\" Value=\"#FF90CFFF\"/>\r\n                    </ColorAnimationUsingKeyFrames>\r\n
+    \               </Storyboard>\r\n                <Storyboard x:Key=\"OnDropUp\">\r\n
+    \                   <ColorAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Shape.Fill).(SolidColorBrush.Color)\"
+    Storyboard.TargetName=\"StyleIcon\">\r\n                        <EasingColorKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"White\">\r\n                            <EasingColorKeyFrame.EasingFunction>\r\n
+    \                               <SineEase EasingMode=\"EaseOut\"/>\r\n                            </EasingColorKeyFrame.EasingFunction>\r\n
+    \                       </EasingColorKeyFrame>\r\n                    </ColorAnimationUsingKeyFrames>\r\n
+    \               </Storyboard>\r\n            </ControlTemplate.Resources>\r\n
+    \           <Grid Height=\"{TemplateBinding MinHeight}\">\r\n                <ToggleButton
+    x:Name=\"Expander\" IsChecked=\"{Binding IsDropDownOpen, RelativeSource={RelativeSource
+    TemplatedParent}}\"\r\n\t\t\t\t\tStyle=\"{StaticResource SelectorComboExpanderStyle}\"/>\r\n
+    \               <Grid>\r\n                    <Grid.ColumnDefinitions>\r\n                        <ColumnDefinition
+    Width=\"Auto\"/>\r\n                        <ColumnDefinition/>\r\n                    </Grid.ColumnDefinitions>\r\n
+    \                   <Border Grid.Column=\"0\" IsHitTestVisible=\"False\">\r\n
+    \                       <Viewbox>\r\n                            <Path x:Name=\"StyleIcon\"
+    Data=\"M0,0L4,0 4,4 0,4zM6,3L20,3 20,4 6,4z M4,6L8,6 8,10 4,10zM10,9L20,9 20,10
+    10,10zM4,12L8,12 8,16 4,16M10,15L20,15 20,16 10,16z\"\r\n\t\t\t\t\t\t\t Fill=\"White\"
+    Margin=\"6,14,4,14\"/>\r\n                        </Viewbox>\r\n                    </Border>\r\n
+    \                   <Border Grid.Column=\"1\" IsHitTestVisible=\"False\">\r\n
+    \                       <Viewbox Stretch=\"UniformToFill\">\r\n                            <Grid
+    Width=\"2000\">\r\n                                <TextBlock Text=\"{TemplateBinding
+    SelectionBoxItem}\" Margin=\"4,6\"/>\r\n                            </Grid>\r\n
+    \                       </Viewbox>\r\n                    </Border>\r\n                </Grid>\r\n
+    \               <Border IsHitTestVisible=\"False\" HorizontalAlignment=\"Right\"
+    Width=\"{Binding ActualHeight, RelativeSource={RelativeSource Self}}\">\r\n                    <Viewbox>\r\n
+    \                       <Path x:Name=\"ExpanderArrow\" Data=\"M3,4L5,7 7,4\" Stroke=\"{StaticResource
+    GlyphFg}\" Stretch=\"None\" Width=\"10\" Height=\"10\" Margin=\"1\" StrokeStartLineCap=\"Round\"
+    StrokeEndLineCap=\"Round\" StrokeLineJoin=\"Round\" RenderTransformOrigin=\"0.5,0.5\">\r\n
+    \                           <Path.RenderTransform>\r\n                                <TransformGroup>\r\n
+    \                                   <ScaleTransform/>\r\n                                    <SkewTransform/>\r\n
+    \                                   <RotateTransform/>\r\n                                    <TranslateTransform/>\r\n
+    \                               </TransformGroup>\r\n                            </Path.RenderTransform>\r\n
+    \                       </Path>\r\n                    </Viewbox>\r\n                </Border>\r\n
+    \               <Popup IsOpen=\"{Binding IsDropDownOpen, RelativeSource={RelativeSource
+    TemplatedParent}}\" AllowsTransparency=\"True\">\r\n                    <Grid
+    Width=\"{Binding ActualWidth, ElementName=Expander}\">\r\n                        <Border
+    Margin=\"0,0,0,8\">\r\n                            <Border.Background>\r\n                                <SolidColorBrush
+    Color=\"{StaticResource ButtonNormalBg}\"/>\r\n                            </Border.Background>\r\n
+    \                       </Border>\r\n                        <StackPanel Background=\"{StaticResource
+    SelectorBg}\" IsItemsHost=\"True\" Margin=\"0,0,0,8\"/>\r\n                        <Rectangle
+    Height=\"8\" VerticalAlignment=\"Bottom\" Fill=\"{StaticResource TD_Shadow}\"/>\r\n
+    \                   </Grid>\r\n                </Popup>\r\n            </Grid>\r\n
+    \           <ControlTemplate.Triggers>\r\n                <Trigger Property=\"IsDropDownOpen\"
+    Value=\"True\">\r\n                    <Trigger.ExitActions>\r\n                        <BeginStoryboard
+    x:Name=\"OnDropUp_BeginStoryboard\" Storyboard=\"{StaticResource OnDropUp}\"/>\r\n
+    \                   </Trigger.ExitActions>\r\n                    <Trigger.EnterActions>\r\n
+    \                       <BeginStoryboard x:Name=\"OnDropDown_BeginStoryboard\"
+    Storyboard=\"{StaticResource OnDropDown}\"/>\r\n                    </Trigger.EnterActions>\r\n
+    \               </Trigger>\r\n            </ControlTemplate.Triggers>\r\n        </ControlTemplate>\r\n
+    \       <Style x:Key=\"StyleSelectorStyle\" TargetType=\"{x:Type ComboBox}\">\r\n
+    \           <Setter Property=\"Foreground\" Value=\"{StaticResource GlyphFg}\"/>\r\n
+    \           <Setter Property=\"Template\" Value=\"{StaticResource StyleSelectorTemplate}\"/>\r\n
+    \       </Style>\r\n        <ControlTemplate x:Key=\"StyleSelectorItemTemplate\"
+    TargetType=\"{x:Type ComboBoxItem}\">\r\n            <Border x:Name=\"Bd\" Height=\"{TemplateBinding
+    MinHeight}\">\r\n                <Border.Background>\r\n                    <SolidColorBrush
+    Color=\"{StaticResource ItemNormalBg}\"/>\r\n                </Border.Background>\r\n
+    \               <Viewbox Stretch=\"UniformToFill\">\r\n                    <Grid
+    Width=\"2000\">\r\n                        <TextBlock x:Name=\"PART_Header\" Text=\"{TemplateBinding
+    Content}\" Margin=\"24,7\"/>\r\n                    </Grid>\r\n                </Viewbox>\r\n
+    \           </Border>\r\n            <ControlTemplate.Triggers>\r\n                <Trigger
+    Property=\"IsHighlighted\" Value=\"True\">\r\n                    <Setter Property=\"Background\"
+    TargetName=\"Bd\">\r\n                        <Setter.Value>\r\n                            <SolidColorBrush
+    Color=\"{StaticResource ItemOverBg}\"/>\r\n                        </Setter.Value>\r\n
+    \                   </Setter>\r\n                </Trigger>\r\n            </ControlTemplate.Triggers>\r\n
+    \       </ControlTemplate>\r\n        <Style x:Key=\"StyleSelectorItemStyle\"
+    TargetType=\"{x:Type ComboBoxItem}\">\r\n            <Setter Property=\"Foreground\"
+    Value=\"{StaticResource GlyphFg}\"/>\r\n            <Setter Property=\"Template\"
+    Value=\"{StaticResource StyleSelectorItemTemplate}\"/>\r\n        </Style>\r\n
+    \       <ControlTemplate x:Key=\"EnableControlTemplate\" TargetType=\"{x:Type
+    CheckBox}\">\r\n            <Grid x:Name=\"Bg\" Height=\"{TemplateBinding MinHeight}\">\r\n
+    \               <Grid.Background>\r\n                    <SolidColorBrush Color=\"{StaticResource
+    ButtonNormalBg}\"/>\r\n                </Grid.Background>\r\n                <VisualStateManager.VisualStateGroups>\r\n
+    \                   <VisualStateGroup x:Name=\"CommonStates\">\r\n                        <VisualStateGroup.Transitions>\r\n
+    \                           <VisualTransition From=\"Normal\" GeneratedDuration=\"0:0:0.2\"
+    To=\"MouseOver\"/>\r\n                            <VisualTransition From=\"MouseOver\"
+    GeneratedDuration=\"0:0:0.2\" To=\"Normal\"/>\r\n                            <VisualTransition
+    From=\"MouseOver\" GeneratedDuration=\"0:0:0.1\" To=\"Pressed\"/>\r\n                            <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\" To=\"MouseOver\"/>\r\n                            <VisualTransition
+    From=\"Pressed\" GeneratedDuration=\"0:0:0.2\" To=\"Normal\"/>\r\n                        </VisualStateGroup.Transitions>\r\n
+    \                       <VisualState x:Name=\"Normal\"/>\r\n                        <VisualState
+    x:Name=\"MouseOver\">\r\n                            <Storyboard>\r\n                                <ColorAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\" Storyboard.TargetName=\"Bg\">\r\n
+    \                                   <EasingColorKeyFrame KeyTime=\"0\" Value=\"{StaticResource
+    ButtonOverBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Pressed\">\r\n                            <Storyboard>\r\n
+    \                               <ColorAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(SolidColorBrush.Color)\"
+    Storyboard.TargetName=\"Bg\">\r\n                                    <EasingColorKeyFrame
+    KeyTime=\"0\" Value=\"{StaticResource ButtonPressBg}\"/>\r\n                                </ColorAnimationUsingKeyFrames>\r\n
+    \                           </Storyboard>\r\n                        </VisualState>\r\n
+    \                       <VisualState x:Name=\"Disabled\"/>\r\n                    </VisualStateGroup>\r\n
+    \                   <VisualStateGroup x:Name=\"CheckStates\">\r\n                        <VisualStateGroup.Transitions>\r\n
+    \                           <VisualTransition From=\"Unchecked\" GeneratedDuration=\"0:0:0.1\"
+    To=\"Checked\"/>\r\n                            <VisualTransition From=\"Checked\"
+    GeneratedDuration=\"0:0:0.2\" To=\"Unchecked\"/>\r\n                        </VisualStateGroup.Transitions>\r\n
+    \                       <VisualState x:Name=\"Checked\"/>\r\n                        <VisualState
+    x:Name=\"Unchecked\">\r\n                            <Storyboard>\r\n                                <DoubleAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(UIElement.Opacity)\" Storyboard.TargetName=\"Check\">\r\n
+    \                                   <EasingDoubleKeyFrame KeyTime=\"0\" Value=\"0\"/>\r\n
+    \                               </DoubleAnimationUsingKeyFrames>\r\n                            </Storyboard>\r\n
+    \                       </VisualState>\r\n                        <VisualState
+    x:Name=\"Indeterminate\"/>\r\n                    </VisualStateGroup>\r\n                </VisualStateManager.VisualStateGroups>\r\n
+    \               <Viewbox Stretch=\"UniformToFill\">\r\n                    <Grid
+    Width=\"1000\">\r\n                        <Grid.ColumnDefinitions>\r\n                            <ColumnDefinition
+    Width=\"Auto\"/>\r\n                            <ColumnDefinition/>\r\n                        </Grid.ColumnDefinitions>\r\n
+    \                       <TextBlock x:Name=\"Text\" Grid.Column=\"1\" Text=\"{TemplateBinding
+    Content}\" Margin=\"4,5\"/>\r\n                        <Rectangle Fill=\"{StaticResource
+    SelectorBg}\" Width=\"{Binding ActualHeight, ElementName=Text}\" Height=\"{Binding
+    ActualHeight, ElementName=Text}\" Margin=\"4\"/>\r\n                        <Path
+    x:Name=\"Check\" Data=\"M3,9L6,12 12,4\" Stroke=\"White\" StrokeThickness=\"2\"
+    Margin=\"4\" StrokeStartLineCap=\"Round\" StrokeEndLineCap=\"Round\" StrokeLineJoin=\"Round\"/>\r\n
+    \                   </Grid>\r\n                </Viewbox>\r\n            </Grid>\r\n
+    \       </ControlTemplate>\r\n        <Style x:Key=\"EnableControlStyle\" TargetType=\"{x:Type
+    CheckBox}\">\r\n            <Setter Property=\"Foreground\" Value=\"{StaticResource
+    GlyphFg}\"/>\r\n            <Setter Property=\"Template\" Value=\"{StaticResource
+    EnableControlTemplate}\"/>\r\n        </Style>\r\n        <Storyboard x:Key=\"ShowLeftSelector\">\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleX)\"
+    Storyboard.TargetName=\"SampleLeftBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"1\"/>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleX)\"
+    Storyboard.TargetName=\"SelectorLeftBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"0\">\r\n                    <EasingDoubleKeyFrame.EasingFunction>\r\n
+    \                       <SineEase EasingMode=\"EaseInOut\"/>\r\n                    </EasingDoubleKeyFrame.EasingFunction>\r\n
+    \               </EasingDoubleKeyFrame>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.IsHitTestVisible)\"
+    Storyboard.TargetName=\"SampleOverlay\">\r\n                <DiscreteBooleanKeyFrame
+    KeyTime=\"0\" Value=\"True\"/>\r\n            </BooleanAnimationUsingKeyFrames>\r\n
+    \       </Storyboard>\r\n        <Storyboard x:Key=\"HideLeftSelector\">\r\n            <DoubleAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleX)\"
+    Storyboard.TargetName=\"SampleLeftBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"0\"/>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleX)\"
+    Storyboard.TargetName=\"SelectorLeftBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"1\">\r\n                    <EasingDoubleKeyFrame.EasingFunction>\r\n
+    \                       <SineEase EasingMode=\"EaseInOut\"/>\r\n                    </EasingDoubleKeyFrame.EasingFunction>\r\n
+    \               </EasingDoubleKeyFrame>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.IsHitTestVisible)\"
+    Storyboard.TargetName=\"SampleOverlay\">\r\n                <DiscreteBooleanKeyFrame
+    KeyTime=\"0\" Value=\"False\"/>\r\n            </BooleanAnimationUsingKeyFrames>\r\n
+    \       </Storyboard>\r\n        <Storyboard x:Key=\"ShowTopSelector\">\r\n            <DoubleAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)\"
+    Storyboard.TargetName=\"SampleTopBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"1\"/>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)\"
+    Storyboard.TargetName=\"SelectorTopBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"0\">\r\n                    <EasingDoubleKeyFrame.EasingFunction>\r\n
+    \                       <SineEase EasingMode=\"EaseInOut\"/>\r\n                    </EasingDoubleKeyFrame.EasingFunction>\r\n
+    \               </EasingDoubleKeyFrame>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.IsHitTestVisible)\"
+    Storyboard.TargetName=\"SampleOverlay\">\r\n                <DiscreteBooleanKeyFrame
+    KeyTime=\"0\" Value=\"True\"/>\r\n            </BooleanAnimationUsingKeyFrames>\r\n
+    \       </Storyboard>\r\n        <Storyboard x:Key=\"HideTopSelector\">\r\n            <DoubleAnimationUsingKeyFrames
+    Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)\"
+    Storyboard.TargetName=\"SampleTopBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"0\"/>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(FrameworkElement.LayoutTransform).(ScaleTransform.ScaleY)\"
+    Storyboard.TargetName=\"SelectorTopBar\">\r\n                <EasingDoubleKeyFrame
+    KeyTime=\"0:0:0.3\" Value=\"1\">\r\n                    <EasingDoubleKeyFrame.EasingFunction>\r\n
+    \                       <SineEase EasingMode=\"EaseInOut\"/>\r\n                    </EasingDoubleKeyFrame.EasingFunction>\r\n
+    \               </EasingDoubleKeyFrame>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.IsHitTestVisible)\"
+    Storyboard.TargetName=\"SampleOverlay\">\r\n                <DiscreteBooleanKeyFrame
+    KeyTime=\"0\" Value=\"False\"/>\r\n            </BooleanAnimationUsingKeyFrames>\r\n
+    \       </Storyboard>\r\n        <Storyboard x:Key=\"ShowContainer1\" BeginTime=\"0:0:0.2\"
+    SpeedRatio=\"1.4\">\r\n            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.Visibility)\"
+    Storyboard.TargetName=\"Fade\">\r\n                <DiscreteObjectKeyFrame KeyTime=\"0\"
+    Value=\"{x:Static Visibility.Visible}\"/>\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0:0:0.8\" Value=\"{x:Static Visibility.Collapsed}\"/>\r\n            </ObjectAnimationUsingKeyFrames>\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(Brush.Opacity)\"
+    Storyboard.TargetName=\"Fade\">\r\n                <EasingDoubleKeyFrame KeyTime=\"0\"
+    Value=\"0\"/>\r\n                <EasingDoubleKeyFrame KeyTime=\"0:0:0.4\" Value=\"1\"/>\r\n
+    \               <EasingDoubleKeyFrame KeyTime=\"0:0:0.8\" Value=\"0\"/>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.Visibility)\"
+    Storyboard.TargetName=\"SampleContainer2\">\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0\" Value=\"{x:Static Visibility.Visible}\"/>\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0:0:0.4\" Value=\"{x:Static Visibility.Collapsed}\"/>\r\n            </ObjectAnimationUsingKeyFrames>\r\n
+    \           <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.Visibility)\"
+    Storyboard.TargetName=\"SampleContainer1\">\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0\" Value=\"{x:Static Visibility.Collapsed}\"/>\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0:0:0.4\" Value=\"{x:Static Visibility.Visible}\"/>\r\n            </ObjectAnimationUsingKeyFrames>\r\n
+    \       </Storyboard>\r\n        <Storyboard x:Key=\"ShowContainer2\" BeginTime=\"0:0:0.2\"
+    SpeedRatio=\"1.4\">\r\n            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.Visibility)\"
+    Storyboard.TargetName=\"Fade\">\r\n                <DiscreteObjectKeyFrame KeyTime=\"0\"
+    Value=\"{x:Static Visibility.Visible}\"/>\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0:0:0.8\" Value=\"{x:Static Visibility.Collapsed}\"/>\r\n            </ObjectAnimationUsingKeyFrames>\r\n
+    \           <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty=\"(Panel.Background).(Brush.Opacity)\"
+    Storyboard.TargetName=\"Fade\">\r\n                <EasingDoubleKeyFrame KeyTime=\"0\"
+    Value=\"0\"/>\r\n                <EasingDoubleKeyFrame KeyTime=\"0:0:0.4\" Value=\"1\"/>\r\n
+    \               <EasingDoubleKeyFrame KeyTime=\"0:0:0.8\" Value=\"0\"/>\r\n            </DoubleAnimationUsingKeyFrames>\r\n
+    \           <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.Visibility)\"
+    Storyboard.TargetName=\"SampleContainer1\">\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0\" Value=\"{x:Static Visibility.Visible}\"/>\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0:0:0.4\" Value=\"{x:Static Visibility.Collapsed}\"/>\r\n            </ObjectAnimationUsingKeyFrames>\r\n
+    \           <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty=\"(UIElement.Visibility)\"
+    Storyboard.TargetName=\"SampleContainer2\">\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0\" Value=\"{x:Static Visibility.Collapsed}\"/>\r\n                <DiscreteObjectKeyFrame
+    KeyTime=\"0:0:0.4\" Value=\"{x:Static Visibility.Visible}\"/>\r\n            </ObjectAnimationUsingKeyFrames>\r\n
+    \       </Storyboard>\r\n        <Geometry x:Key=\"NoesisLogoGeometry\">M64.552314,61.408115
+    L90.473059,64.639252 65.938536,97.224111 96.858771,170.22477 151.36087,176.44062
+    176.65871,144.70187 186.30899,167.69955 161.59547,200.607 80.812194,191.57223
+    39.827483,94.941438 z M48.254649,23.461594 L152.39867,36.273918 169.09616,74.476677
+    153.32091,95.305482 137.28592,57.748096 58.689337,48.038651 58.673125,48.036747
+    26.085236,92.157874 40.901858,129.9017 16.161385,126.74894 0.032970434,88.96424
+    z M136.8885,0 L177.71051,4.9764633 210.32399,79.460176 147.07187,163.27949 105.70369,158.62394
+    95.540381,134.55325 136.09376,139.68585 183.81151,76.187043 161.88087,25.886173
+    121.79224,19.86055 z</Geometry>\r\n        <SolidColorBrush x:Key=\"NoesisLogoBlueBg\"
+    Color=\"#FF2AA6E2\"/>\r\n        <Geometry x:Key=\"NoesisTextGeometry\">M92.8579999677658,70.3415300000004L91.6092999677657,70.3415300000004C89.1117999677657,70.3415300000004
+    86.3690999677657,69.0553500000004 84.6772999677657,67.5409700000003 83.3359999677656,66.3402600000004
+    81.3786999677656,63.7640900000003 79.5695999677656,61.6829800000004L48.2047999677656,14.2132800000004C44.6023999677656,9.61943000000042
+    40.5841999677656,5.85798000000045 37.5730999677657,3.3297700000004 32.8352999677656,1.39255000000037
+    29.1355999677657,0.416200000000344 22.8921999677656,0.416200000000344L-3.22343520764434E-08,0.416200000000344
+    -3.22343520764434E-08,91.5688500000003 21.6435999677657,91.5688500000003 21.6435999677657,21.6435500000003
+    22.8921999677656,21.6435500000003C25.3893999677656,21.6435500000003 27.0235999677656,22.4759800000004
+    29.1048999677656,23.7246500000003 31.1705999677658,25.5488600000003 33.1231999677656,27.6454000000003
+    34.6437999677657,30.1582000000003L66.0398999677656,78.0749800000003C69.6422999677656,82.7973200000003
+    72.2215999677657,85.6954300000003 75.5205999677657,88.6398700000003 80.0990999677657,90.7209900000004
+    84.9497999677657,91.9850800000002 91.6092999677657,91.9850800000002L114.501399967766,91.9850800000002
+    114.501399967766,2.27373673749166E-13 92.8579999677658,2.27373673749166E-13z M206.253499967766,3.41060514011881E-13L160.667099967766,3.41060514011881E-13C137.774799967766,3.41060514011881E-13,126.120799967766,9.57309000000032,126.120799967766,29.1355300000003L126.120799967766,62.4333200000003C126.120799967766,81.5795200000003,137.774799967766,91.5688500000003,160.667099967766,91.5688500000003L206.253499967766,91.5688500000003C229.145899967766,91.5688500000003,240.800099967766,81.9957600000003,240.800099967766,62.4333200000003L240.800099967766,29.1355300000003C240.800099967766,9.98931000000039,229.145899967766,3.41060514011881E-13,206.253499967766,3.41060514011881E-13z
+    M218.323899967766,62.4333200000003C218.323899967766,67.4279700000003,214.161899967766,70.3415300000004,206.253499967766,70.3415300000004L160.667099967766,70.3415300000004C152.758899967766,70.3415300000004,148.596999967766,67.8441800000004,148.596999967766,62.4333200000003L148.596999967766,29.1355300000003C148.596999967766,23.7246500000003,152.758899967766,21.2273400000003,160.667099967766,21.2273400000003L206.253499967766,21.2273400000003C214.161899967766,21.2273400000003,218.323899967766,23.7246500000003,218.323899967766,29.1355300000003z
+    M274.513899967766,65.7631100000002L274.513899967766,56.6062200000003 366.277899967766,56.6062200000003
+    366.277899967766,35.3788800000003 274.513899967766,35.3788800000003 274.513899967766,26.2219700000003C274.513899967766,23.3084200000003,276.178999967766,21.6435500000002,279.508699967766,21.6435500000002L366.694299967766,21.6435500000002
+    366.694299967766,2.27373673749166E-13 279.508699967766,2.27373673749166E-13C261.194999967766,2.27373673749166E-13,252.037899967766,7.49200000000019,252.037899967766,22.0597700000002L252.037899967766,68.6766500000002C252.037899967766,83.6606500000002,261.194999967766,91.1526500000002,279.508699967766,91.1526500000002L367.110299967766,91.1526500000002
+    367.110299967766,69.9253100000002 279.508699967766,69.9253100000002C276.178999967766,70.3415300000001,274.513899967766,68.6766500000002,274.513899967766,65.7631100000002z
+    M464.725099967766,34.9626400000003L404.986699967766,34.9626400000003C401.656899967766,34.9626400000003,399.575899967766,33.7139800000003,399.575899967766,31.6328800000003L399.575899967766,24.5570900000003C399.575899967766,22.4759800000004,401.240899967766,21.2273400000003,404.986699967766,21.2273400000003L489.281899967766,21.2273400000003
+    489.281899967766,3.41060514011881E-13 404.986699967766,3.41060514011881E-13C386.672899967766,3.41060514011881E-13,377.516099967766,7.4920000000003,377.516099967766,22.0597700000003L377.516099967766,36.6275400000003C377.516099967766,49.5304200000003,386.672899967766,56.1899800000003,404.986699967766,56.1899800000003L464.725099967766,56.1899800000003C468.054699967766,56.1899800000003,469.719799967766,57.4386300000003,469.719799967766,59.5197500000004L469.719799967766,67.0117400000004C469.719799967766,69.0928600000004,468.054699967766,70.3415300000004,464.725099967766,70.3415300000004L380.429599967766,70.3415300000004
+    380.429599967766,91.5688500000003 464.725099967766,91.5688500000003C483.038799967766,91.5688500000003,492.195599967766,84.0768600000003,492.195599967766,69.5090700000003L492.195599967766,57.0224100000002C492.195599967766,42.4546400000002,483.038799967766,34.9626400000003,464.725099967766,34.9626400000003z
+    M503.433699967766,3.41060514011881E-13L525.909499967766,3.41060514011881E-13 525.909499967766,91.1526500000003
+    503.433699967766,91.1526500000003z M625.010299967766,34.9626400000003L565.054499967766,34.9626400000003C561.724799967766,34.9626400000003,559.643599967766,33.7139800000003,559.643599967766,31.6328800000003L559.643599967766,24.5570900000003C559.643599967766,22.4759800000004,561.308399967766,21.2273400000003,565.054499967766,21.2273400000003L649.567499967766,21.2273400000003
+    649.567499967766,3.41060514011881E-13 565.054499967766,3.41060514011881E-13C546.740699967766,3.41060514011881E-13,537.583799967766,7.4920000000003,537.583799967766,22.0597700000003L537.583799967766,36.6275400000003C537.583799967766,49.5304200000003,546.740699967766,56.1899800000003,565.054499967766,56.1899800000003L625.010299967766,56.1899800000003C628.340199967766,56.1899800000003,630.005099967766,57.4386300000003,630.005099967766,59.5197500000004L630.005099967766,67.0117400000004C630.005099967766,69.0928600000004,628.340199967766,70.3415300000004,625.010299967766,70.3415300000004L540.497399967766,70.3415300000004
+    540.497399967766,91.5688500000003 625.010299967766,91.5688500000003C643.324099967766,91.5688500000003,652.481199967766,84.0768600000003,652.481199967766,69.5090700000003L652.481199967766,57.0224100000002C652.064899967766,42.4546400000002,642.907899967766,34.9626400000003,625.010299967766,34.9626400000003z</Geometry>\r\n
+    \       <Geometry x:Key=\"NoesisGuiTextGeometry\">M218.200700106049,67.01174C218.200700106049,69.09286,216.535800106049,70.34153,213.205900106049,70.34153L153.648800106049,70.34153C150.319100106049,70.34153,148.237800106049,69.09286,148.237800106049,67.01174L148.237800106049,0.416200000000003
+    125.762100106049,0.416200000000003 125.762100106049,69.50907C125.762100106049,84.49309,134.918800106049,91.98508,153.232600106049,91.98508L212.789900106049,91.98508C231.103500106049,91.98508,240.260500106049,84.49309,240.260500106049,69.92531L240.260500106049,2.5410988417629E-21
+    217.784500106049,2.5410988417629E-21 217.784500106049,67.01174z M251.914700106049,2.5410988417629E-21L274.390700106049,2.5410988417629E-21
+    274.390700106049,91.15265 251.914700106049,91.15265z M64.3942001060486,35.79507L64.3942001060486,58.27109
+    92.2812001060488,58.27109 92.2812001060488,70.34153 27.4707001060488,70.34153C24.1410001060485,70.34153,22.0598001060485,68.67665,22.0598001060485,65.76311L22.0598001060485,25.80576C22.0598001060485,22.89222,23.7246001060485,21.2273399999999,27.4707001060488,21.2273399999999L112.259700106049,21.2273399999999
+    112.259700106049,2.5410988417629E-21 27.4707001060488,2.5410988417629E-21C9.15670010604844,2.5410988417629E-21,1.06048446468776E-07,7.49199999999996,1.06048446468776E-07,22.05977L1.06048446468776E-07,68.67665C1.06048446468776E-07,83.66065,9.15670010604844,91.15265,27.4707001060488,91.15265L114.757000106049,91.15265
+    114.757000106049,35.37888 64.3942001060486,35.37888z</Geometry>\r\n    </UserControl.Resources>\r\n
+    \   <UserControl.Triggers>\r\n        <EventTrigger RoutedEvent=\"ToggleButton.Checked\"
+    SourceName=\"SelectorLeftExpand\">\r\n            <BeginStoryboard Storyboard=\"{StaticResource
+    ShowLeftSelector}\"/>\r\n        </EventTrigger>\r\n        <EventTrigger RoutedEvent=\"ToggleButton.Unchecked\"
+    SourceName=\"SelectorLeftExpand\">\r\n            <BeginStoryboard Storyboard=\"{StaticResource
+    HideLeftSelector}\"/>\r\n        </EventTrigger>\r\n        <EventTrigger RoutedEvent=\"ToggleButton.Checked\"
+    SourceName=\"SelectorTopExpand\">\r\n            <BeginStoryboard Storyboard=\"{StaticResource
+    ShowTopSelector}\"/>\r\n        </EventTrigger>\r\n        <EventTrigger RoutedEvent=\"ToggleButton.Unchecked\"
+    SourceName=\"SelectorTopExpand\">\r\n            <BeginStoryboard Storyboard=\"{StaticResource
+    HideTopSelector}\"/>\r\n        </EventTrigger>\r\n    </UserControl.Triggers>\r\n
+    \   <Grid>\r\n        <Grid>\r\n            <Grid.Resources>\r\n                <ResourceDictionary
+    Source=\"/SamplesWPF;component/Assets/NoesisGUI/Samples/Common/LogoResources.xaml\"/>\r\n
+    \           </Grid.Resources>\r\n            <Border Background=\"{StaticResource
+    NoesisLogoBg}\"/>\r\n            <Path Data=\"{StaticResource NoesisLogoGeometry}\"
+    Fill=\"{StaticResource NoesisLogoFg}\" RenderTransform=\"{StaticResource NoesisLogoTransform}\"
+    RenderTransformOrigin=\"0.5,0.5\" Stretch=\"Uniform\" StrokeLineJoin=\"Round\"
+    UseLayoutRounding=\"False\"/>\r\n        </Grid>\r\n        <Grid x:Name=\"Layout\">\r\n
+    \           <Grid.RowDefinitions>\r\n                <RowDefinition Height=\"3.5*\"/>\r\n
+    \               <RowDefinition Height=\"0.5*\"/>\r\n                <RowDefinition
+    Height=\"6*\"/>\r\n            </Grid.RowDefinitions>\r\n            <Grid.ColumnDefinitions>\r\n
+    \               <ColumnDefinition Width=\"2.5*\"/>\r\n                <ColumnDefinition
+    Width=\"0.5*\"/>\r\n                <ColumnDefinition Width=\"7*\"/>\r\n            </Grid.ColumnDefinitions>\r\n
+    \           <Decorator x:Name=\"LeftBarWidth\" Grid.RowSpan=\"3\"/>\r\n            <Decorator
+    x:Name=\"TopBarHeight\" Grid.ColumnSpan=\"3\"/>\r\n            <Decorator x:Name=\"ExpandWidth\"
+    Grid.RowSpan=\"3\" Grid.Column=\"1\"/>\r\n            <Decorator x:Name=\"ExpandHeight\"
+    Grid.ColumnSpan=\"3\" Grid.Row=\"1\"/>\r\n            <Decorator x:Name=\"ItemHeight\"
+    Grid.Row=\"2\" Grid.Column=\"2\" Height=\"64\"/>\r\n        </Grid>\r\n        <Grid>\r\n
+    \           <Grid.ColumnDefinitions>\r\n                <ColumnDefinition Width=\"Auto\"/>\r\n
+    \               <ColumnDefinition Width=\"*\"/>\r\n            </Grid.ColumnDefinitions>\r\n
+    \           <Grid.RowDefinitions>\r\n                <RowDefinition Height=\"Auto\"/>\r\n
+    \               <RowDefinition Height=\"*\"/>\r\n            </Grid.RowDefinitions>\r\n
+    \           <Decorator x:Name=\"SampleLeftBar\" Width=\"{Binding ActualWidth,
+    ElementName=LeftBarWidth}\" Grid.RowSpan=\"2\">\r\n                <Decorator.LayoutTransform>\r\n
+    \                   <ScaleTransform ScaleX=\"0\"/>\r\n                </Decorator.LayoutTransform>\r\n
+    \           </Decorator>\r\n            <Decorator x:Name=\"SampleTopBar\" Height=\"{Binding
+    ActualHeight, ElementName=TopBarHeight}\" Grid.ColumnSpan=\"2\">\r\n                <Decorator.LayoutTransform>\r\n
+    \                   <ScaleTransform ScaleY=\"0\"/>\r\n                </Decorator.LayoutTransform>\r\n
+    \           </Decorator>\r\n            <Viewbox x:Name=\"SampleContainer\" Grid.Row=\"1\"
+    Grid.Column=\"1\">\r\n                <Grid>\r\n                    <Border x:Name=\"SampleContainer1\">\r\n
+    \                       <StackPanel Margin=\"250,200\" Width=\"1280\" VerticalAlignment=\"Center\"
+    >\r\n                            <StackPanel Orientation=\"Horizontal\" Margin=\"0,0,62.837,0\"
+    d:LayoutOverrides=\"Width\">\r\n                                <Path Data=\"{StaticResource
+    NoesisLogoGeometry}\" Fill=\"{StaticResource NoesisLogoBlueBg}\" Stretch=\"Uniform\"/>\r\n
+    \                               <Path Data=\"{StaticResource NoesisTextGeometry}\"
+    Fill=\"White\" Stretch=\"Uniform\" Margin=\"40,0,0,0\" VerticalAlignment=\"Center\"/>\r\n
+    \                               <Path Data=\"{StaticResource NoesisGuiTextGeometry}\"
+    Fill=\"{StaticResource NoesisLogoBlueBg}\" Stretch=\"Uniform\" Margin=\"40,0,0,0\"
+    VerticalAlignment=\"Center\"/>\r\n                            </StackPanel>\r\n
+    \                           <Grid d:LayoutOverrides=\"LeftPosition, RightPosition\"
+    Margin=\"0,100,0,0\">\r\n                                <TextBlock Text=\"Control
+    &amp; Style Gallery\" TextAlignment=\"Center\" Foreground=\"#40000000\" FontSize=\"100\"
+    Margin=\"0,6,-4,0\"/>\r\n                                <TextBlock Text=\"Control
+    &amp; Style Gallery\" TextAlignment=\"Center\" Foreground=\"White\" FontSize=\"100\"/>\r\n
+    \                           </Grid>\r\n                        </StackPanel>\r\n
+    \                   </Border>\r\n                    <Border x:Name=\"SampleContainer2\"
+    Visibility=\"Collapsed\"/>\r\n                </Grid>\r\n            </Viewbox>\r\n
+    \           <Border x:Name=\"Fade\" Grid.Row=\"1\" Grid.Column=\"1\" Visibility=\"Collapsed\">\r\n
+    \               <Border.Background>\r\n                    <SolidColorBrush Color=\"#FF0A3459\"
+    Opacity=\"0\"/>\r\n                </Border.Background>\r\n            </Border>\r\n
+    \           <Grid x:Name=\"SampleOverlay\" Grid.Row=\"1\" Grid.Column=\"1\" Background=\"Transparent\"
+    IsHitTestVisible=\"false\"/>\r\n        </Grid>\r\n        <Grid>\r\n            <Grid.RowDefinitions>\r\n
+    \               <RowDefinition Height=\"4*\"/>\r\n                <RowDefinition
+    Height=\"6*\"/>\r\n            </Grid.RowDefinitions>\r\n            <Grid.ColumnDefinitions>\r\n
+    \               <ColumnDefinition Width=\"3*\"/>\r\n                <ColumnDefinition
+    Width=\"7*\"/>\r\n            </Grid.ColumnDefinitions>\r\n            <StackPanel
+    x:Name=\"SelectorLeft\" Grid.RowSpan=\"2\" Orientation=\"Horizontal\" HorizontalAlignment=\"Right\">\r\n
+    \               <Border x:Name=\"SelectorLeftContainer\" Width=\"{Binding ActualWidth,
+    ElementName=LeftBarWidth}\" Background=\"{StaticResource SelectorBg}\">\r\n                    <Grid
+    x:Name=\"Selector\">\r\n                        <Grid.RowDefinitions>\r\n                            <RowDefinition
+    Height=\"Auto\"/>\r\n                            <RowDefinition/>\r\n                            <RowDefinition
+    Height=\"Auto\"/>\r\n                        </Grid.RowDefinitions>\r\n                        <Rectangle
+    Grid.RowSpan=\"3\" Height=\"12\" VerticalAlignment=\"Bottom\" Margin=\"0,0,0,-12\"
+    Fill=\"{StaticResource TD_Shadow}\" IsHitTestVisible=\"False\"/>\r\n                        <Rectangle
+    Grid.RowSpan=\"3\" Width=\"12\" HorizontalAlignment=\"Right\" Margin=\"0,0,-12,0\"
+    Fill=\"{StaticResource LR_Shadow}\" IsHitTestVisible=\"False\"/>\r\n                        <ComboBox
+    x:Name=\"StyleSelector\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Style=\"{StaticResource StyleSelectorStyle}\">\r\n                            <ComboBoxItem
+    Style=\"{StaticResource StyleSelectorItemStyle}\" MinHeight=\"{Binding Height,
+    ElementName=ItemHeight}\" Content=\"Noesis Style\" IsSelected=\"True\"/>\r\n                            <ComboBoxItem
+    Style=\"{StaticResource StyleSelectorItemStyle}\" MinHeight=\"{Binding Height,
+    ElementName=ItemHeight}\" Content=\"Simple Style\"/>\r\n                            <ComboBoxItem
+    Style=\"{StaticResource StyleSelectorItemStyle}\" MinHeight=\"{Binding Height,
+    ElementName=ItemHeight}\" Content=\"Windows Style\"/>\r\n                        </ComboBox>\r\n
+    \                       <TreeView x:Name=\"SampleSelector\" Grid.Row=\"1\" Background=\"{x:Null}\"
+    BorderBrush=\"{x:Null}\" BorderThickness=\"0\"\r\n                                  Style=\"{StaticResource
+    SelectorStyle}\" MinWidth=\"{Binding Height, ElementName=ItemHeight}\">\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Brushes\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"All
+    brushes\" Tag=\"Brushes\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"ImageBrush
+    Stretch\" Tag=\"ImageBrushStretch\"/>\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"ImageBrush Tile\" Tag=\"ImageBrushTile\"/>\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"ImageBrush Viewbox\" Tag=\"ImageBrushViewbox\"/>\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Image Atlas\" Tag=\"ImageAtlas\"/>\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Reflections\" Tag=\"Reflections\"/>\r\n                            </TreeViewItem>\r\n
+    \                           <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Shapes\">\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Butterfly\" Tag=\"Butterfly\"/>\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Lion\" Tag=\"Lion\"/>\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Tiger\" Tag=\"Tiger\"/>\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Time\" Tag=\"Time\"/>\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Tux\" Tag=\"Tux\"/>\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Car HUD\" Tag=\"CarHud\"/>\r\n
+    \                           </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Panels\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Canvas\"
+    Tag=\"Canvas\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"DockPanel\"
+    Tag=\"DockPanel\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Grid\"
+    Tag=\"Grid\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"UniformGrid\"
+    Tag=\"UniformGrid\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"StackPanel\"
+    Tag=\"StackPanel\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"WraPanel\"
+    Tag=\"WrapPanel\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Expander\"
+    Tag=\"Expander\"/>\r\n                            </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Button controls\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Button\"
+    Tag=\"Button\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"CheckBox\"
+    Tag=\"CheckBox\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"RadioButton\"
+    Tag=\"RadioButton\"/>\r\n                            </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Selector controls\">\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"ComboBox\" Tag=\"ComboBox\"/>\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"ListBox\" Tag=\"ListBox\"/>\r\n                                <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"TreeView\" Tag=\"TreeView\"/>\r\n                            </TreeViewItem>\r\n
+    \                           <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Menu controls\">\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Menu\" Tag=\"Menu\"/>\r\n
+    \                               <TreeViewItem Style=\"{StaticResource SampleItemStyle}\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"ContextMenu\"
+    Tag=\"ContextMenu\"/>\r\n                            </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Range controls\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Slider\"
+    Tag=\"Slider\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"ProgressBar\"
+    Tag=\"ProgressBar\"/>\r\n                            </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Bars\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"ToolBar\"
+    Tag=\"ToolBar\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"StatusBar\"
+    Tag=\"StatusBar\"/>\r\n                            </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"Text controls\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"TextBlock\"
+    Tag=\"Text\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"TextBox\"
+    Tag=\"TextBox\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"PasswordBox\"
+    Tag=\"PasswordBox\"/>\r\n                            </TreeViewItem>\r\n                            <TreeViewItem
+    Style=\"{StaticResource SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\"
+    Header=\"General\">\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Projection\"
+    Tag=\"Projection\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Styles\"
+    Tag=\"Styles\"/>\r\n                                <TreeViewItem Style=\"{StaticResource
+    SampleItemStyle}\" MinHeight=\"{Binding Height, ElementName=ItemHeight}\" Header=\"Control
+    palette\" Tag=\"Palette\"/>\r\n                            </TreeViewItem>\r\n
+    \                       </TreeView>\r\n                        <Rectangle Grid.Row=\"1\"
+    Height=\"8\" VerticalAlignment=\"Top\" Fill=\"{StaticResource TD_Shadow}\"/>\r\n
+    \                       <Rectangle Grid.Row=\"1\" Height=\"8\" VerticalAlignment=\"Bottom\"
+    Fill=\"{StaticResource DT_Shadow}\"/>\r\n                        <Rectangle Grid.Row=\"2\"
+    MinHeight=\"{Binding Height, ElementName=ItemHeight}\">\r\n                            <Rectangle.LayoutTransform>\r\n
+    \                               <ScaleTransform ScaleY=\"0.25\"/>\r\n                            </Rectangle.LayoutTransform>\r\n
+    \                           <Rectangle.Fill>\r\n                                <SolidColorBrush
+    Color=\"{StaticResource ButtonDarkNormalBg}\"/>\r\n                            </Rectangle.Fill>\r\n
+    \                       </Rectangle>\r\n                    </Grid>\r\n                </Border>\r\n
+    \               <ToggleButton x:Name=\"SelectorLeftExpand\" Template=\"{StaticResource
+    SelectorExpandTemplate}\"\r\n\t\t\t\t\tWidth=\"{Binding ActualWidth, ElementName=ExpandWidth}\"
+    Height=\"{Binding Width, RelativeSource={RelativeSource Self}}\" VerticalAlignment=\"Top\">\r\n
+    \                   <Viewbox>\r\n                        <Path Data=\"{StaticResource
+    SelectorExpandGeometry}\" Stretch=\"None\" Width=\"10\" Height=\"10\" Stroke=\"{StaticResource
+    GlyphFg}\" StrokeThickness=\"1\" StrokeStartLineCap=\"Round\" StrokeEndLineCap=\"Round\"
+    Margin=\"1\"/>\r\n                    </Viewbox>\r\n                </ToggleButton>\r\n
+    \               <Decorator x:Name=\"SelectorLeftBar\" Width=\"{Binding ActualWidth,
+    ElementName=LeftBarWidth}\">\r\n                    <Decorator.LayoutTransform>\r\n
+    \                       <ScaleTransform ScaleX=\"1\"/>\r\n                    </Decorator.LayoutTransform>\r\n
+    \               </Decorator>\r\n            </StackPanel>\r\n            <StackPanel
+    x:Name=\"SelectorTop\" Grid.ColumnSpan=\"2\" VerticalAlignment=\"Bottom\" d:IsHidden=\"True\">\r\n
+    \               <Border x:Name=\"SelectorTopContainer\" Height=\"{Binding ActualHeight,
+    ElementName=TopBarHeight}\" Background=\"{StaticResource SelectorBg}\"/>\r\n                <ToggleButton
+    x:Name=\"SelectorTopExpand\" Template=\"{StaticResource SelectorExpandTemplate}\"\r\n\t\t\t\t\tWidth=\"{Binding
+    Height, RelativeSource={RelativeSource Self}}\" Height=\"{Binding ActualHeight,
+    ElementName=ExpandHeight}\" HorizontalAlignment=\"Left\">\r\n                    <Viewbox>\r\n
+    \                       <Path Data=\"{StaticResource SelectorExpandGeometry}\"
+    Stretch=\"None\" Width=\"10\" Height=\"10\" Stroke=\"{StaticResource GlyphFg}\"
+    StrokeThickness=\"1\" StrokeStartLineCap=\"Round\" StrokeEndLineCap=\"Round\"
+    Margin=\"1\"/>\r\n                    </Viewbox>\r\n                </ToggleButton>\r\n
+    \               <Decorator x:Name=\"SelectorTopBar\" Height=\"{Binding ActualHeight,
+    ElementName=TopBarHeight}\">\r\n                    <Decorator.LayoutTransform>\r\n
+    \                       <ScaleTransform ScaleX=\"1\"/>\r\n                    </Decorator.LayoutTransform>\r\n
+    \               </Decorator>\r\n            </StackPanel>\r\n        </Grid>\r\n
+    \   </Grid>\r\n</UserControl>"
+  error: 
+  fonts:
+  - {fileID: 11400000, guid: 00f2e7c78150bea4396da9a324c6cf75, type: 2}
+  - {fileID: 11400000, guid: 5c757e1c784966e43b31e4cb44a03c2f, type: 2}
+  - {fileID: 11400000, guid: cfdf7f18a2316424b916f1dea0ed529c, type: 2}
+  - {fileID: 11400000, guid: 6b83badc924711943aaa48e7c1ef1940, type: 2}
+  texturePaths: []
+  textures: []
+  xamls:
+  - {fileID: 11400000, guid: e9203f56c344c824ba0c9a6711457dcb, type: 2}

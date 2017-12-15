@@ -1,0 +1,19 @@
+<Grid
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:local="clr-namespace:Noesis.UserControls">
+    <local:ImageViewer>
+        <local:ImageViewer.Images>
+            <ImageSource>../../Touch/bear.jpg</ImageSource>
+            <ImageSource>../../Touch/cat.jpg</ImageSource>
+            <ImageSource>../../Touch/chipmunk.jpg</ImageSource>
+            <ImageSource>../../Touch/dog.jpg</ImageSource>
+            <ImageSource>../../Touch/dolphin.jpg</ImageSource>
+            <ImageSource>../../Touch/gorilla.jpg</ImageSource>
+            <ImageSource>../../Touch/iguana.jpg</ImageSource>
+            <ImageSource>../../Touch/snake.jpg</ImageSource>
+            <ImageSource>../../Touch/tiger.jpg</ImageSource>
+            <ImageSource>../../Touch/zebra.jpg</ImageSource>
+        </local:ImageViewer.Images>
+    </local:ImageViewer>
+</Grid>
