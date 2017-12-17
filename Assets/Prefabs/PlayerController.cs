@@ -8,20 +8,28 @@ public class PlayerController : NetworkBehaviour {
     public GameObject BulletPrefab;
     public Transform BulletSpawn;
     public float AngleThreashold = 3;
-    private Vector3 _bottomVert;
-    private Vector3 _bottom;
-    public float speed = 8;
+    public float SpeedBase = 8;
 
-    private Vector3 _upAxis = new Vector3(-0.5f, 0, -0.5f);
-    private Vector3 _downAxis = new Vector3(0.5f, 0, 0.5f);
-    private Vector3 _leftAxis = new Vector3(0.5f, 0, -0.5f);
-    private Vector3 _rightAxis = new Vector3(-0.5f, 0, 0.5f);
+    //global direction variables for movement. Only right and up are needed. Use negation for left and down.
+    private readonly Vector3 _upAxis = new Vector3(-0.5f, 0, -0.5f);
+    private readonly Vector3 _rightAxis = new Vector3(-0.5f, 0, 0.5f);
+
+    //character instance specific variables
+    private float _stamina = 100f;
+
+    #region Getters And Setters
+    public float Stamina
+    {
+        get
+        {
+            return _stamina;
+        }
+    }
+    #endregion
 
     public override void OnStartLocalPlayer()
     {
         GetComponent<MeshRenderer>().material.color = Color.cyan;
-
-        _bottomVert = Utils.GetBottomPoint(GetComponent<MeshFilter>().mesh);
     }
 
     
@@ -29,13 +37,22 @@ public class PlayerController : NetworkBehaviour {
     // Update is called once per frame
     void Update () {
 
-        //_bottom = GetComponent<Transform>().TransformPoint(_bottomVert);
-
+        //ensure that all following code will be for the users player and not the others on the network.
         if (!isLocalPlayer)
         {
             return;
         }
 
+        //add to stamina with the frame time taken into consideration.
+        if (_stamina < 100)
+        {
+            _stamina += 2 * Time.deltaTime;
+        }
+
+        if(_stamina > 100)
+        {
+            _stamina = 100;
+        }
 
         // Generate a plane that intersects the transform's position with an upwards normal.
         var playerPlane = new Plane(Vector3.up, transform.position);
@@ -46,8 +63,8 @@ public class PlayerController : NetworkBehaviour {
         // Determine the point where the cursor ray intersects the plane.
         // This will be the point that the object must look towards to be looking at the mouse.
         // Raycasting to a Plane object only gives us a distance, so we'll have to take the distance,
-        //   then find the point along that ray that meets that distance.  This will be the point
-        //   to look at.
+        // then find the point along that ray that meets that distance.  This will be the point
+        // to look at.
         var hitdist = 0.0f;
         // If the ray is parallel to the plane, Raycast will return false.
         if (playerPlane.Raycast(ray, out hitdist))
@@ -56,28 +73,61 @@ public class PlayerController : NetworkBehaviour {
             var targetPoint = ray.GetPoint(hitdist);
 
             // Determine the target rotation.  This is the rotation if the transform looks at the target point.
-            var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-
-            // Smoothly rotate towards the target point.
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(targetPoint - transform.position);
+            
         }
 
-        //Debug.Log(GetAngleToMouse());
+        float speed = SpeedBase;
 
-        //var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        //var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        Debug.Log(_stamina);
 
-        //transform.Rotate(0, GetAngleToMouse(), 0);
-        //transform.Translate(0, 0, z);
-        
-        //todo transform the local transfomr to world space before the calculation
-        if(Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") == 0)
+        //handle sprint functionality
+        if(_stamina > 9.9 && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
         {
-            transform.Translate(_rightAxis * speed * Time.deltaTime);
+            speed *= 2;
+            _stamina -= 30 * Time.deltaTime;
+        }
+        
+        //handle input direction. This code may be adjusted in the future. It currently will only support 8 axis movement.
+        //note that there appears to be a floaty feeling when moving. This may be due to my keyboard.
+        //I was forced to use transform.position because transform.translate causes issues when the characters forward
+        //vector is locked to the mouse position.
+        if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") > 0)
+        {
+            transform.position = transform.position + ((_rightAxis + _upAxis).normalized * speed * Time.deltaTime);
+        }
+        else if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") > 0)
+        {
+            transform.position = transform.position + ((-_rightAxis + _upAxis).normalized * speed * Time.deltaTime);
+        }
+        else if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") < 0)
+        {
+            transform.position = transform.position + ((_rightAxis + -_upAxis).normalized * speed * Time.deltaTime);
+        }
+        else if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") < 0)
+        {
+            transform.position = transform.position + ((-_rightAxis + -_upAxis).normalized * speed * Time.deltaTime);
+        }
+        else if(Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") == 0)
+        {
+            transform.position = transform.position + (_rightAxis * speed * Time.deltaTime);
+        }
+        //note that the right axis is not negated. Instead it is subtracted. this is more efficient than negating a vector then adding.
+        else if(Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") == 0)
+        {
+            transform.position = transform.position - (_rightAxis * speed * Time.deltaTime);
+        }
+        else if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
+        {
+            transform.position = transform.position + (_upAxis * speed * Time.deltaTime);
+        }
+        else if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
+        {
+            transform.position = transform.position - (_upAxis * speed * Time.deltaTime);
         }
         
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             CmdFire();
         }
@@ -86,7 +136,6 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     void CmdFire()
     {
-        //BulletPrefab.transform.Rotate(90f, 0f, 0f);
         GameObject bullet = Instantiate(BulletPrefab, BulletSpawn.position, BulletSpawn.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.up * 15;
 
@@ -94,23 +143,5 @@ public class PlayerController : NetworkBehaviour {
 
         Destroy(bullet, 2.0f);
     }
-
-    float GetAngleToMouse()
-    {
-        
-
-        //get the forward vector in screen space
-        Vector3 forward = Camera.main.WorldToScreenPoint(GetComponent<Transform>().forward.normalized);
-        Vector3 mouse = (Input.mousePosition - Camera.main.WorldToScreenPoint(_bottom.normalized));
-
-        float angle = Vector3.Angle(forward, mouse);
-        Debug.Log(GetComponent<Transform>().forward.normalized);
-
-        if(angle <= AngleThreashold)
-        {
-            return 0;
-        }
-
-        return angle;
-    }
+    
 }

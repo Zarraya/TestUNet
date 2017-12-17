@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: b79bcfcbc1fa26b419836355d14ad30e
+timeCreated: 1513468955
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: group_pasted__group_pasted__pasted__pCube7
+    100002: group_pasted__group_pasted__pasted__pCube8
+    100004: group_pasted__pasted__pCube6_pasted__group
+    100006: group_pasted__pCube3
+    100008: group_pasted__pCube4
+    100010: group_pasted__pCube5
+    100012: group_pasted__pCube6
+    100014: group_pasted__pCube7
+    100016: group_pasted__pCube8
+    100018: group_pasted__pCube9
+    100020: group_pasted__pPlane2
+    100022: pasted__pCube2_group
+    100024: //RootNode
+    400000: group_pasted__group_pasted__pasted__pCube7
+    400002: group_pasted__group_pasted__pasted__pCube8
+    400004: group_pasted__pasted__pCube6_pasted__group
+    400006: group_pasted__pCube3
+    400008: group_pasted__pCube4
+    400010: group_pasted__pCube5
+    400012: group_pasted__pCube6
+    400014: group_pasted__pCube7
+    400016: group_pasted__pCube8
+    400018: group_pasted__pCube9
+    400020: group_pasted__pPlane2
+    400022: pasted__pCube2_group
+    400024: //RootNode
+    2300000: group_pasted__group_pasted__pasted__pCube7
+    2300002: group_pasted__group_pasted__pasted__pCube8
+    2300004: group_pasted__pasted__pCube6_pasted__group
+    2300006: group_pasted__pCube3
+    2300008: group_pasted__pCube4
+    2300010: group_pasted__pCube5
+    2300012: group_pasted__pCube6
+    2300014: group_pasted__pCube7
+    2300016: group_pasted__pCube8
+    2300018: group_pasted__pCube9
+    2300020: group_pasted__pPlane2
+    2300022: pasted__pCube2_group
+    3300000: group_pasted__group_pasted__pasted__pCube7
+    3300002: group_pasted__group_pasted__pasted__pCube8
+    3300004: group_pasted__pasted__pCube6_pasted__group
+    3300006: group_pasted__pCube3
+    3300008: group_pasted__pCube4
+    3300010: group_pasted__pCube5
+    3300012: group_pasted__pCube6
+    3300014: group_pasted__pCube7
+    3300016: group_pasted__pCube8
+    3300018: group_pasted__pCube9
+    3300020: group_pasted__pPlane2
+    3300022: pasted__pCube2_group
+    4300000: group_pasted__group_pasted__pasted__pCube7
+    4300002: group_pasted__group_pasted__pasted__pCube8
+    4300004: group_pasted__pasted__pCube6_pasted__group
+    4300006: group_pasted__pCube3
+    4300008: group_pasted__pCube4
+    4300010: group_pasted__pCube5
+    4300012: group_pasted__pCube6
+    4300014: group_pasted__pCube7
+    4300016: group_pasted__pCube8
+    4300018: group_pasted__pCube9
+    4300020: group_pasted__pPlane2
+    4300022: pasted__pCube2_group
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__group_pasted__pasted__pCube7Mat
+    second: {fileID: 2100000, guid: 48e3c4a704dae3d489d7ee2cb112b54a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__group_pasted__pasted__pCube8Mat
+    second: {fileID: 2100000, guid: ed3b7d24c0750654baabae1200f2b190, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube3Mat
+    second: {fileID: 2100000, guid: dca3d399695137e469f72a3df20af1f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube4Mat
+    second: {fileID: 2100000, guid: 25e57b081e91ae84f9063e5786ef8626, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube5Mat
+    second: {fileID: 2100000, guid: 9cec163333c2792419692a09c496394b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube6Mat
+    second: {fileID: 2100000, guid: bc9ae8f1c99ff4e46a20e25a13a1abca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube7Mat
+    second: {fileID: 2100000, guid: 87323c805d639b84d966ebd8c8706f91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube8Mat
+    second: {fileID: 2100000, guid: 2abfbdab06755a445a05acef3b9599f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pCube9Mat
+    second: {fileID: 2100000, guid: 409dd9e8818b2154980445fc81a9ff9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pPlane2Mat
+    second: {fileID: 2100000, guid: e002bc4b2c4cce84fb7b2426124fff83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pasted__pCube6_pasted__groupMat
+    second: {fileID: 2100000, guid: e6213173dca97a24abc66d593bc36147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pCube2_groupMat
+    second: {fileID: 2100000, guid: 3d18da56223bd0a47a0b9502da1c84b7, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
