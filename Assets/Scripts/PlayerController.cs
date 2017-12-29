@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class PlayerController : NetworkBehaviour {
+public class PlayerController : NetworkBehaviour
+{
 
     public GameObject BulletPrefab;
     public Transform BulletSpawn;
     public float AngleThreashold = 3;
     public float SpeedBase = 8;
+    public float RollTime = 0.3f;
 
     //global direction variables for movement. Only right and up are needed. Use negation for left and down.
     private readonly Vector3 _upAxis = new Vector3(-0.5f, 0, -0.5f);
@@ -18,6 +20,10 @@ public class PlayerController : NetworkBehaviour {
 
     //character instance specific variables
     private StaminaManager _staminaManager = null;
+    private bool _isRolling = false;
+    private float _totalRollTime = 0;
+    private Vector3 _rollStart = Vector3.zero;
+    private Vector3 _rollEnd = Vector3.zero;
 
     public override void OnStartLocalPlayer()
     {
@@ -29,14 +35,21 @@ public class PlayerController : NetworkBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         //ensure that all following code will be for the users player and not the others on the network.
         if (!isLocalPlayer)
         {
             return;
         }
-               
+
+        if (_isRolling)
+        {
+            LerpPosition();
+            return;
+        }
+
 
         // Generate a plane that intersects the transform's position with an upwards normal.
         var playerPlane = new Plane(Vector3.up, transform.position);
@@ -58,18 +71,18 @@ public class PlayerController : NetworkBehaviour {
 
             // Determine the target rotation.  This is the rotation if the transform looks at the target point.
             transform.rotation = Quaternion.LookRotation(targetPoint - transform.position);
-            
+
         }
 
         float speed = SpeedBase;
 
         //handle sprint functionality
-        if(_staminaManager.Stamina > 9.9 && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+        if (_staminaManager.Stamina > 9.9 && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
         {
             speed *= 2;
-            _staminaManager.Decrease( 30 * Time.deltaTime) ;
+            _staminaManager.Decrease(30 * Time.deltaTime);
         }
-        
+
         //handle input direction. This code may be adjusted in the future. It currently will only support 8 axis movement.
         //note that there appears to be a floaty feeling when moving. This may be due to my keyboard.
         //I was forced to use transform.position because transform.translate causes issues when the characters forward
@@ -94,28 +107,28 @@ public class PlayerController : NetworkBehaviour {
             transform.position = transform.position + ((-_rightAxis + -_upAxis).normalized * speed * Time.deltaTime);
             lastDirection = Constants.Direction.downleft;
         }
-        else if(Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") == 0)
+        else if (Input.GetAxis("Horizontal") > 0 && Input.GetAxis("Vertical") == 0)
         {
             transform.position = transform.position + (_rightAxis * speed * Time.deltaTime);
             lastDirection = Constants.Direction.right;
         }
         //note that the right axis is not negated. Instead it is subtracted. this is more efficient than negating a vector then adding.
-        else if(Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") == 0)
+        else if (Input.GetAxis("Horizontal") < 0 && Input.GetAxis("Vertical") == 0)
         {
             transform.position = transform.position - (_rightAxis * speed * Time.deltaTime);
             lastDirection = Constants.Direction.left;
         }
-        else if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
+        else if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
         {
             transform.position = transform.position + (_upAxis * speed * Time.deltaTime);
             lastDirection = Constants.Direction.up;
         }
-        else if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
+        else if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
         {
             transform.position = transform.position - (_upAxis * speed * Time.deltaTime);
             lastDirection = Constants.Direction.down;
         }
-        
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -125,6 +138,11 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetMouseButtonDown(1))
         {
             NinjaRoll();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _staminaManager.Stamina = 100;
         }
     }
 
@@ -140,75 +158,89 @@ public class PlayerController : NetworkBehaviour {
     }
 
 
-    public bool NinjaRoll()
+    public void NinjaRoll()
     {
-        //get the direction to move in based on the last movement direction
-        Vector3 moveDir = Vector3.zero;
+
+        _isRolling = true;
+
+
+        _rollStart = transform.position;
 
         switch (lastDirection)
         {
             case Constants.Direction.up:
-                moveDir = _upAxis;
+                _rollEnd = GetRollEnd(_upAxis);
                 break;
             case Constants.Direction.down:
-                moveDir = -_upAxis;
+                _rollEnd = GetRollEnd(-_upAxis);
                 break;
             case Constants.Direction.left:
-                moveDir = -_rightAxis;
+                _rollEnd = GetRollEnd(-_rightAxis);
                 break;
             case Constants.Direction.right:
-                moveDir = _rightAxis;
+                _rollEnd = GetRollEnd(_rightAxis);
                 break;
             case Constants.Direction.upleft:
-                moveDir = (_upAxis + (-_rightAxis)).normalized;
+                _rollEnd = GetRollEnd((_upAxis + (-_rightAxis)).normalized);
                 break;
             case Constants.Direction.upright:
-                moveDir = (_upAxis + _rightAxis).normalized;
+                _rollEnd = GetRollEnd((_upAxis + _rightAxis).normalized);
                 break;
             case Constants.Direction.downleft:
-                moveDir = (-_upAxis + (-_rightAxis)).normalized;
+                _rollEnd = GetRollEnd((-_upAxis + (-_rightAxis)).normalized);
                 break;
             case Constants.Direction.downright:
-                moveDir = (-_upAxis + (_rightAxis)).normalized;
+                _rollEnd = GetRollEnd((-_upAxis + (_rightAxis)).normalized);
                 break;
         };
 
-        //move the character the appropriate amount based on stamina
-        if(_staminaManager.Stamina == 100)
-        {
-            transform.position = transform.position + (moveDir * 10);
-            _staminaManager.Decrease(_staminaManager.Stamina);
-            return true;
-        }
 
-        if(_staminaManager.Stamina >= 60 && _staminaManager.Stamina < 100)
-        {
-            transform.position = transform.position + (moveDir * 5);
-            _staminaManager.Stamina = 0;
-            return true;
-        }
 
-        if(_staminaManager.Stamina >= 30 && _staminaManager.Stamina < 60)
-        {
-            transform.position = transform.position + (moveDir * 3);
-            _staminaManager.Stamina = 0;
-            return true;
-        }
-
-        if(_staminaManager.Stamina >= 1 && _staminaManager.Stamina < 30)
-        {
-            transform.position = transform.position + (moveDir * 1);
-            _staminaManager.Stamina = 0;
-            return true;
-        }
-
-        if(_staminaManager.Stamina < 1)
-        {
-            _staminaManager.Stamina = 0;
-            return true;
-        }
-
-        return false;
+        return;
     }
-    
+
+    private Vector3 GetRollEnd(Vector3 direction)
+    {
+        if (_staminaManager.Stamina == 100)
+        {
+            return _rollStart + (direction * 3);
+        }
+
+        if (_staminaManager.Stamina >= 60 && _staminaManager.Stamina < 100)
+        {
+            return _rollStart + (direction * 1.5f);
+        }
+
+        if (_staminaManager.Stamina >= 30 && _staminaManager.Stamina < 60)
+        {
+            return _rollStart + (direction * .75f);
+        }
+
+        if (_staminaManager.Stamina >= 1 && _staminaManager.Stamina < 30)
+        {
+            return _rollStart + (direction * .25f);
+        }
+
+        if (_staminaManager.Stamina < 1)
+        {
+            return _rollStart;
+        }
+
+        return Vector3.zero;
+    }
+
+    private void LerpPosition()
+    {
+        if (_totalRollTime >= RollTime)
+        {
+            _totalRollTime = 0;
+            _isRolling = false;
+            _staminaManager.Stamina = 0;
+            return;
+        }
+
+        _totalRollTime += Time.deltaTime;
+
+        transform.position = Vector3.Lerp(_rollStart, _rollEnd, _totalRollTime / RollTime);
+    }
 }

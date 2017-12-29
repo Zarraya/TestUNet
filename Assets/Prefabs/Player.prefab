@@ -527,6 +527,7 @@ MonoBehaviour:
   BulletSpawn: {fileID: 4527511273755160}
   AngleThreashold: 3
   SpeedBase: 8
+  RollTime: 0.3
 --- !u!136 &136394336652106764
 CapsuleCollider:
   m_ObjectHideFlags: 1
