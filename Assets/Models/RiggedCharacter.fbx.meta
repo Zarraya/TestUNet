@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: d738e4c7caeab5447bb5205f0691dda3
+timeCreated: 1515006692
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: char1:Box021
+    100002: char1:Box022
+    100004: char1:Box025
+    100006: char1:Box026
+    100008: char1:transform1
+    100010: char1:transform2
+    100012: charBodyMesh
+    100014: charBodyMesh23
+    100016: joint11
+    100018: joint_HEAD
+    100020: joint_HIPS
+    100022: joint_L_FOOT
+    100024: joint_L_HAND1
+    100026: joint_L_LOWERARM1
+    100028: joint_L_LOWERLEG
+    100030: joint_L_UPPERARM
+    100032: joint_L_UPPERLEG
+    100034: joint_R_FOOT
+    100036: joint_R_HAND
+    100038: joint_R_LOWERARM
+    100040: joint_R_LOWERLEG
+    100042: joint_R_UPPERARM
+    100044: joint_R_UPPERLEG
+    100046: joint_SPINE
+    100048: joint_UPPERCHEST
+    100050: //RootNode
+    100052: transform1
+    100054: transform2
+    100056: transform3
+    400000: char1:Box021
+    400002: char1:Box022
+    400004: char1:Box025
+    400006: char1:Box026
+    400008: char1:transform1
+    400010: char1:transform2
+    400012: charBodyMesh
+    400014: charBodyMesh23
+    400016: joint11
+    400018: joint_HEAD
+    400020: joint_HIPS
+    400022: joint_L_FOOT
+    400024: joint_L_HAND1
+    400026: joint_L_LOWERARM1
+    400028: joint_L_LOWERLEG
+    400030: joint_L_UPPERARM
+    400032: joint_L_UPPERLEG
+    400034: joint_R_FOOT
+    400036: joint_R_HAND
+    400038: joint_R_LOWERARM
+    400040: joint_R_LOWERLEG
+    400042: joint_R_UPPERARM
+    400044: joint_R_UPPERLEG
+    400046: joint_SPINE
+    400048: joint_UPPERCHEST
+    400050: //RootNode
+    400052: transform1
+    400054: transform2
+    400056: transform3
+    4300000: charBodyMesh23
+    9500000: //RootNode
+    13700000: charBodyMesh23
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: char1_wire_000000001
+    second: {fileID: 2100000, guid: 18cae9b74ae9d3242ad07dbf796c61bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: cb9122c03d98bbc4fb658db2ed15b688, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
