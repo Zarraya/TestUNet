@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class PlayerController : NetworkBehaviour
+public class PlayerController : OsBase
 {
 
     public GameObject BulletPrefab;
@@ -12,6 +12,7 @@ public class PlayerController : NetworkBehaviour
     public float AngleThreashold = 3;
     public float SpeedBase = 8;
     public float RollTime = 0.3f;
+    public Constants.StaggerState StaggerState = Constants.StaggerState.none;
 
     //global direction variables for movement. Only right and up are needed. Use negation for left and down.
     private readonly Vector3 _upAxis = new Vector3(-0.5f, 0, -0.5f);
@@ -24,6 +25,7 @@ public class PlayerController : NetworkBehaviour
     private float _totalRollTime = 0;
     private Vector3 _rollStart = Vector3.zero;
     private Vector3 _rollEnd = Vector3.zero;
+    private float _staggerTimer = 0.0f;
 
     public override void OnStartLocalPlayer()
     {
@@ -41,6 +43,12 @@ public class PlayerController : NetworkBehaviour
         //ensure that all following code will be for the users player and not the others on the network.
         if (!isLocalPlayer)
         {
+            return;
+        }
+
+        if(StaggerState != Constants.StaggerState.none)
+        {
+            StaggerHandler();
             return;
         }
 
@@ -140,11 +148,18 @@ public class PlayerController : NetworkBehaviour
             NinjaRoll();
         }
 
+        #region Degug Inputs
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _staminaManager.Stamina = 100;
         }
-    }
+
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            StaggerState = Constants.StaggerState.full;
+        }
+        #endregion
+    }  
 
     [Command]
     void CmdFire()
@@ -242,5 +257,35 @@ public class PlayerController : NetworkBehaviour
         _totalRollTime += Time.deltaTime;
 
         transform.position = Vector3.Lerp(_rollStart, _rollEnd, _totalRollTime / RollTime);
+    }
+
+    private void StaggerHandler()
+    {
+        _staggerTimer += Time.deltaTime;
+
+        switch (StaggerState)
+        {
+            case Constants.StaggerState.full:
+                if(_staggerTimer >= Constants.STAGGER_FULL)
+                {
+                    StaggerState = Constants.StaggerState.none;
+                    _staggerTimer = 0;
+                }
+                break;
+            case Constants.StaggerState.half:
+                if(_staggerTimer >= Constants.STAGGER_HALF)
+                {
+                    StaggerState = Constants.StaggerState.none;
+                    _staggerTimer = 0;
+                }
+                break;
+            case Constants.StaggerState.third:
+                if (_staggerTimer >= Constants.STAGGER_THIRD)
+                {
+                    StaggerState = Constants.StaggerState.none;
+                    _staggerTimer = 0;
+                }
+                break;
+        };
     }
 }
