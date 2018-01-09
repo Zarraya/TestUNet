@@ -34,4 +34,11 @@ public static class Constants {
         third,
         none
     }
+
+    public enum SpearState
+    {
+        dropped,
+        held,
+        deadly
+    }
 }

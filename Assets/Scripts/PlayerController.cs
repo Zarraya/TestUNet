@@ -14,6 +14,9 @@ public class PlayerController : OsBase
     public float RollTime = 0.3f;
     public Constants.StaggerState StaggerState = Constants.StaggerState.none;
 
+    //global private variables
+    private NetworkStartPosition[] _spawnLocations;
+
     //global direction variables for movement. Only right and up are needed. Use negation for left and down.
     private readonly Vector3 _upAxis = new Vector3(-0.5f, 0, -0.5f);
     private readonly Vector3 _rightAxis = new Vector3(-0.5f, 0, 0.5f);
@@ -34,6 +37,8 @@ public class PlayerController : OsBase
         GetComponent<MeshRenderer>().material.color = Color.cyan;
         //StaminaText = transform.parent.gameObject.GetComponent<Canvas>().GetComponent<Text>();
         _staminaManager = GetComponent<StaminaManager>();
+
+        _spawnLocations = FindObjectsOfType<NetworkStartPosition>();
     }
 
     // Update is called once per frame
@@ -46,7 +51,7 @@ public class PlayerController : OsBase
             return;
         }
 
-        if(StaggerState != Constants.StaggerState.none)
+        if (StaggerState != Constants.StaggerState.none)
         {
             StaggerHandler();
             return;
@@ -158,8 +163,13 @@ public class PlayerController : OsBase
         {
             StaggerState = Constants.StaggerState.full;
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Respawn();
+        }
         #endregion
-    }  
+    }
 
     [Command]
     void CmdFire()
@@ -266,14 +276,14 @@ public class PlayerController : OsBase
         switch (StaggerState)
         {
             case Constants.StaggerState.full:
-                if(_staggerTimer >= Constants.STAGGER_FULL)
+                if (_staggerTimer >= Constants.STAGGER_FULL)
                 {
                     StaggerState = Constants.StaggerState.none;
                     _staggerTimer = 0;
                 }
                 break;
             case Constants.StaggerState.half:
-                if(_staggerTimer >= Constants.STAGGER_HALF)
+                if (_staggerTimer >= Constants.STAGGER_HALF)
                 {
                     StaggerState = Constants.StaggerState.none;
                     _staggerTimer = 0;
@@ -287,5 +297,33 @@ public class PlayerController : OsBase
                 }
                 break;
         };
+    }
+
+    public void Respawn()
+    {
+        if (isLocalPlayer)
+        {
+            this.transform.position = _spawnLocations[0].transform.position;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        SpearController spCon = collision.gameObject.GetComponent<SpearController>();
+
+        if(spCon != null)
+        {
+            switch (spCon.SpearState)
+            {
+                case Constants.SpearState.deadly:
+                    Respawn();
+                    break;
+                case Constants.SpearState.dropped:
+                    spCon.SpearState = Constants.SpearState.held;
+                    break;
+                case Constants.SpearState.held:
+                    break;
+            };
+        }
     }
 }

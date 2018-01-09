@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System;
+using System.Linq;
 
 public class GameState : OsBase {
 
@@ -12,6 +13,7 @@ public class GameState : OsBase {
     public float timeLeft = 0;
 
     private Constants.GameMode _gameMode = Constants.GameMode.menu;
+    private NetworkStartPosition[] _spearSpawns;
 
     public Constants.GameMode GameMode
     {
@@ -34,6 +36,10 @@ public class GameState : OsBase {
         Network.sendRate = 0;
 
         timeLeft += (float)GameLength.TotalSeconds;
+
+        _spearSpawns = FindObjectsOfType<NetworkStartPosition>().Where(o => o.gameObject.name.Contains("Spear")).ToArray();
+
+        //GameObject.Find("RiggedCharacter").GetComponent<Animator>().Play("Grounded");
 	}
 
     private void GameState_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -62,5 +68,10 @@ public class GameState : OsBase {
         //todo create spawn locations with game objects and then get the list here. Choose one randomly with a rng.
         //potential idea: have a simple puzzle to get to the spear instead of it sitting out in the open.
         //Network.Instantiate(SpearPrefab);
+
+        if(SpearPrefab != null)
+        {
+            Network.Instantiate(SpearPrefab, _spearSpawns[0].transform.position, _spearSpawns[0].transform.rotation, 0);
+        }
     }
 }
